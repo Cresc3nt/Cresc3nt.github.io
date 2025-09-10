@@ -23,7 +23,7 @@ redirect_from:
   </div>
 </div>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="zh">
 
 
