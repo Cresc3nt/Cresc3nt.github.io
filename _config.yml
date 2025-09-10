@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 # site_theme               : "default" # Currently available options are "default", "air"
-title                    : "Yuxuan(黄钰轩) / Site Title"
+title                    : "Yuxuan(黄钰轩) / Homepage"
 title_separator          : "-"
 name                     : &name "Huang Yuxuan"
 description              : &description "Yuxuan Huang's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
@@ -54,7 +54,7 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
