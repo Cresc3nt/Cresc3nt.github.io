@@ -3,11 +3,14 @@ layout: post
 title: "在云服务器上部署私有 Overleaf 服务器"
 date: 2025-09-12
 # author: 你的名字
-categories: [Blog]   # 或 [Notes]、[Tech] 等
-tags: [LaTeX, Overleaf, Cloud Server]   # 随意
+# categories: [Blog]   # 或 [Notes]、[Tech] 等
 # description: "文章摘要（用于预览/SEO）"
 permalink: /posts/2025/09/overleaf-server/   # 如需自定义链接可加
 # image: /images/cover/xxx.jpg         # 如有封面图
+tags:   # 随意
+    - LaTeX
+    - Overleaf
+    - Cloud Server   
 ---
 
 ## 前言
