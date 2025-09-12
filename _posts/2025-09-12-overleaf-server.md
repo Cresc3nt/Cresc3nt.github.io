@@ -270,7 +270,7 @@ bin/up
 
 ![管理员添加账户](/images/overleaf-server/add-users.png)
 
-在输入要添加账户的邮箱后，会为新账户生成一个设置密码链接，访问该链接即可完成新账户的注册。
+在输入要添加账户的邮箱后，会为新账户生成一个设置密码链接，访问该链接设置密码即可完成新账户的注册。
 
 ![设置密码链接](/images/overleaf-server/register.png)
 
