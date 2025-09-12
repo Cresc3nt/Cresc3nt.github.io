@@ -1,5 +1,5 @@
 ---
-layout: post
+# layout: post
 title: "在云服务器上部署私有 Overleaf 服务器"
 date: 2025-09-12
 # author:                           # 你的名字
