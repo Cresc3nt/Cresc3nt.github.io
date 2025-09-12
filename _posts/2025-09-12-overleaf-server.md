@@ -278,6 +278,23 @@ bin/up
 
 ![使用示例](/images/overleaf-server/example.png)
 
+## VS Code/Cursor + Overleaf
+
+在 VS Code 扩展中搜索插件 [Overleaf Workshop](https://github.com/iamhyc/Overleaf-Workshop) ，点击安装。
+
+安装成功后，可以在左侧导航栏看到 Overleaf 的 logo。
+
+点击图中所示的加号，将部署的 Overleaf 服务器地址 `http://<your-server-ip-or-domain>:<your-port>` 填进框中。
+
+在左侧可以进行登录。
+
+点击 `Login with Password`，根据提示输入账号密码。
+
+点击图中的按钮，便可以使用 VS Code 编辑 LaTeX 项目了。
+
+在 Cursor 中，我并没有在插件市场搜索到 Overleaf Workshop 插件，这时可以通过手动安装 VSIX 文件的方式来解决这个问题。
+在 VSCode 中，右键点击已安装的插件 → `Export Extension`。在 Cursor 中，按 `Ctrl`+`Shift`+`P` 打开命令面板，输入 `Install from VSIX`，选择下载的 `.vsix` 文件。安装完成后，重启 Cursor 即可使用。
+
 ## 总结
 
 本文提供了一套在国内网络环境下可复用、可维护且体验流畅的 Overleaf 私有部署方案。
