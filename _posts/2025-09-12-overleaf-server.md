@@ -63,7 +63,7 @@ docker run hello-world
 ## 配置 Docker 镜像加速器
 
 国内服务器访问 Docker Hub 经常超时，必须配置镜像加速器。首先创建配置文件
-```Bash
+```bash
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
@@ -76,13 +76,13 @@ EOF
 ```
 
 重启 Docker
-```Bash
+```bash
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
 验证加速器
-```Bash
+```bash
 docker info | grep -A 5 "Registry Mirrors"
 ```
 应看可以到配置的镜像地址。
@@ -92,19 +92,19 @@ docker info | grep -A 5 "Registry Mirrors"
 Overleaf 官方提供了 `overleaf/toolkit` 工具包，简化了部署流程。
 
 首先克隆仓库
-```Bash
+```bash
 git clone git@github.com:overleaf/toolkit.git ./overleaf-toolkit
 cd overleaf-toolkit
 ```
 
 初始化配置
-```Bash
+```bash
 bin/init
 ```
 这会在 `config/` 目录下生成 `overleaf.rc`, `variables.env`, `version` 三个文件。
 
 修改 `overleaf.rc` 中的内容
-```Bash
+```bash
 ## 设置访问地址（必须！）
 export OVERLEAF_URL="http://<your-server-ip-or-domain>:<your-port>"
 
@@ -122,7 +122,7 @@ export OVERLEAF_ADMIN_EMAIL="your-admin-email@example.com"
 ```
 
 修改 `variables.env` 中的内容
-```Bash
+```bash
 ## 设置 Overleaf 实例在系统内部的应用名称（用于日志、后台管理等）
 OVERLEAF_APP_NAME="Your Custom Overleaf Instance"
 
@@ -142,7 +142,7 @@ OVERLEAF_ADMIN_EMAIL=your-admin-email@example.com
 修改 `lib/docker-compose.base.yml` 中的内容，将 `image: "${IMAGE}` 修改为 `image: "sharelatex/sharelatex:latest"`。
 
 接下来启动服务
-```Bash
+```bash
 bin/up
 ```
 现在会看到来自 docker 容器的一些日志输出，表示正在拉取镜像，后续会自动运行容器。如果在终端上按下 `Ctrl` + `c`，服务将关闭，可以通过命令 `bin/start` 来重新启动它们（不附加到日志输出）。
@@ -150,7 +150,7 @@ bin/up
 ## 安装完整的 texlive
 
 社区版使用的 texlive 是最小安装的 texlive ，需要将其升级到完整版。
-```Bash
+```bash
 # 进入容器
 bin/shell
 # 查看版本
@@ -180,7 +180,7 @@ bin/start
 
 ## 安装中文字体
 将本地的中文字体复制到服务器，Windows 系统的的字体储存在 `C:\windows\Fonts` 目录，将其复制到服务器的 `/root/Fonts` 目录后，在服务器内完成安装
-```Bash
+```bash
 # 进入Fonts目录
 cd Fonts/
 
@@ -220,7 +220,7 @@ fc-list :lang=zh-cn
 ```
 
 重启服务
-```Bash
+```bash
 bin/stop
 bin/up
 ```
@@ -228,7 +228,7 @@ bin/up
 ## 清除原有镜像与容器
 
 有时，我们会不小心安装错误的镜像，这个时候我们需要确保旧的、错误的镜像和容器被完全清除。
-```Bash
+```bash
 # 停止当前所有服务
 cd ~/overleaf-toolkit
 bin/stop
@@ -255,7 +255,7 @@ docker system prune -a
 ```
 
 之后便可以启动服务
-```Bash
+```bash
 bin/up
 ```
 
