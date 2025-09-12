@@ -216,7 +216,8 @@ kramdown:
   enable_coderay: false
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    line_numbers: true
+    block:
+      line_numbers: true
 
 # These settings control the types of collections used by the template
 collections:
