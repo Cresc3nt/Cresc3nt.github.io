@@ -105,13 +105,13 @@ bin/init
 修改 `overleaf.rc` 中的内容
 ```bash {.line-numbers}
 ## 设置访问地址（必须！）
-export OVERLEAF_URL="http://[your-server-ip-or-domain]:[your-port]"
+export OVERLEAF_URL="http://<your-server-ip-or-domain>:<your-port>"
 
 ## 监听所有 IP（必须！）
 OVERLEAF_LISTEN_IP=0.0.0.0
 
 ## 设置服务端口（必须！）
-OVERLEAF_PORT=[your-port]   # 需要在服务器设置中开放相应的端口
+OVERLEAF_PORT=<your-port>   # 需要在服务器设置中开放相应的端口
 
 ## 设置管理员邮箱（必须！）
 export OVERLEAF_ADMIN_EMAIL="your-admin-email@example.com"
@@ -126,7 +126,7 @@ export OVERLEAF_ADMIN_EMAIL="your-admin-email@example.com"
 OVERLEAF_APP_NAME="Your Custom Overleaf Instance"
 
 ## 设置用户访问该 Overleaf 实例的完整公网 URL（必须包含协议、IP/域名、端口）
-OVERLEAF_SITE_URL=http://[your-server-ip-or-domain]:[your-port]
+OVERLEAF_SITE_URL=http://<your-server-ip-or-domain>:<your-port>
 
 ## 设置网页顶部导航栏或浏览器标签页中显示的标题（用户可见的品牌标识）
 OVERLEAF_NAV_TITLE=Your Custom Overleaf Instance
@@ -196,6 +196,9 @@ docker cp winfonts.tar.gz sharelatex:/root
 # 进入容器的命令行界面
 docker exec -it sharelatex bash
 
+# 在容器内更新软件包列表
+apt-get update
+
 # 通过安装wqy字体同时安装xfont工具
 apt-get install xfonts-wqy
 
@@ -221,6 +224,56 @@ bin/stop
 bin/up
 ```
 
+## 清除原有镜像与容器
+
+有时，我们会不小心安装错误的镜像，这个时候我们需要确保旧的、错误的镜像和容器被完全清除。
+```bash {.line-numbers}
+# 停止当前所有服务
+cd ~/overleaf-toolkit
+bin/stop
+
+# 列出所有与项目相关的容器
+# 通常容器名会包含 "overleaf" 或 "sharelatex"
+docker ps -a --filter "name=overleaf" --filter "name=sharelatex"
+
+# 强制删除所有列出的相关容器
+# 请将 <CONTAINER_ID_OR_NAME> 替换为上一步命令中列出的实际容器ID或名称
+docker rm -f <CONTAINER_ID_OR_NAME_1> <CONTAINER_ID_OR_NAME_2>
+
+# 列出所有本地镜像，查找非官方的或可疑的镜像
+docker images | grep -E "(sharelatex|overleaf)"
+
+# 删除非官方的自定义镜像
+# 请将 <CUSTOM_IMAGE_NAME:TAG> 替换为上一步中找到的、非 "sharelatex/sharelatex:latest" 的镜像
+docker rmi <CUSTOM_IMAGE_NAME:TAG>
+
+# （可选）清理所有无用的Docker对象，获得一个纯净的环境
+docker system prune -a
+# 系统会提示确认，输入 'y' 并回车。
+# 注意：此命令会删除所有未被容器使用的镜像、网络、构建缓存等。
+```
+
+之后便可以启动服务
+```bash {.line-numbers}
+bin/up
+```
+
 ## 登录
 
-首先访问 `http://[your-server-ip-or-domain]:[your-port]/launchpad` 创建管理员，之后便可以访问 `http://[your-server-ip-or-domain]:[your-port]/login` 登录用户
+首先访问 `http://<your-server-ip-or-domain>:<your-port>/launchpad` 创建管理员，之后便可以访问 `http://<your-server-ip-or-domain>:<your-port>/login` 登录用户。
+
+![登录界面](/images/overleaf-server/login.png)
+
+## 添加账户
+
+在管理员账户主页，点击 `admin - Manage Users` 即可添加账户。
+
+![管理员添加账户](/images/overleaf-server/add-users.png)
+
+在输入要添加账户的邮箱后，会为新账户生成一个设置密码链接，访问该链接即可完成新账户的注册。
+
+![设置密码链接](/images/overleaf-server/register.png)
+
+接下来，就可以愉快地使用 overleaf 啦。
+
+
