@@ -2,12 +2,12 @@
 layout: post
 title: "在云服务器上部署私有 Overleaf 服务器"
 date: 2025-09-12
-# author: 你的名字
-# categories: [Blog]   # 或 [Notes]、[Tech] 等
-# description: "文章摘要（用于预览/SEO）"
+# author:                           # 你的名字
+# categories: [Blog]                # 或 [Notes]、[Tech] 等
+# description:                      # "文章摘要（用于预览/SEO）"
 permalink: /posts/2025/09/overleaf-server/   # 如需自定义链接可加
-# image: /images/cover/xxx.jpg         # 如有封面图
-tags:   # 随意
+# image: /images/cover/xxx.jpg      # 如有封面图
+tags:                               # 随意
     - LaTeX
     - Overleaf
     - Cloud Server   
@@ -86,3 +86,141 @@ docker info | grep -A 5 "Registry Mirrors"
 ```
 应看可以到配置的镜像地址。
 
+## 部署 Overleaf Toolkit
+
+Overleaf 官方提供了 `overleaf/toolkit` 工具包，简化了部署流程。
+
+首先克隆仓库
+```bash {.line-numbers}
+git clone git@github.com:overleaf/toolkit.git ./overleaf-toolkit
+cd overleaf-toolkit
+```
+
+初始化配置
+```bash {.line-numbers}
+bin/init
+```
+这会在 `config/` 目录下生成 `overleaf.rc`, `variables.env`, `version` 三个文件。
+
+修改 `overleaf.rc` 中的内容
+```bash {.line-numbers}
+## 设置访问地址（必须！）
+export OVERLEAF_URL="http://[your-server-ip-or-domain]:[your-port]"
+
+## 监听所有 IP（必须！）
+OVERLEAF_LISTEN_IP=0.0.0.0
+
+## 设置服务端口（必须！）
+OVERLEAF_PORT=[your-port]   # 需要在服务器设置中开放相应的端口
+
+## 设置管理员邮箱（必须！）
+export OVERLEAF_ADMIN_EMAIL="your-admin-email@example.com"
+
+## 关闭公开注册（可选）
+# export OVERLEAF_SIGNUPS_ENABLED=false
+```
+
+修改 `variables.env` 中的内容
+```bash {.line-numbers}
+## 设置 Overleaf 实例在系统内部的应用名称（用于日志、后台管理等）
+OVERLEAF_APP_NAME="Your Custom Overleaf Instance"
+
+## 设置用户访问该 Overleaf 实例的完整公网 URL（必须包含协议、IP/域名、端口）
+OVERLEAF_SITE_URL=http://[your-server-ip-or-domain]:[your-port]
+
+## 设置网页顶部导航栏或浏览器标签页中显示的标题（用户可见的品牌标识）
+OVERLEAF_NAV_TITLE=Your Custom Overleaf Instance
+
+## 设置管理员联系邮箱（用于接收系统通知、用户联系、密码重置等）
+OVERLEAF_ADMIN_EMAIL=your-admin-email@example.com
+
+## （可选）自定义页面顶部 Logo 图片地址，当前注释表示使用默认样式
+# OVERLEAF_HEADER_IMAGE_URL=http://example.com/logo.png
+```
+
+修改 `lib/docker-compose.base.yml` 中的内容，将 `image: "${IMAGE}` 修改为 `image: "sharelatex/sharelatex:latest"`。
+
+接下来启动服务
+```bash {.line-numbers}
+bin/up
+```
+现在会看到来自 docker 容器的一些日志输出，表示正在拉取镜像，后续会自动运行容器。如果在终端上按下 `Ctrl` + `c`，服务将关闭，可以通过命令 `bin/start` 来重新启动它们（不附加到日志输出）。
+
+## 安装完整的 texlive
+
+社区版使用的 texlive 是最小安装的 texlive ，需要将其升级到完整版。
+```bash {.line-numbers}
+# 进入容器
+bin/shell
+# 查看版本
+tlmgr --version
+# 更换镜像源，我用腾讯云的镜像
+tlmgr option repository http://mirrors.cloud.tencent.com/CTAN/systems/texlive/tlnet
+# 查看
+tlmgr option show repository
+
+# 在你选择的镜像站里，找到升级脚本
+cd ~
+wget http://mirrors.cloud.tencent.com/CTAN/systems/texlive/tlnet/update-tlmgr-latest.sh
+
+chmod +x update-tlmgr-latest.sh
+./update update-tlmgr-latest.sh
+
+# 更新
+tlmgr update --self --all 
+
+# 安装完整的包，要花挺长一段时间，尽量选速度快的源
+tlmgr install scheme-full
+
+# 重启容器
+bin/stop 
+bin/start
+```
+
+## 安装中文字体
+将本地的中文字体复制到服务器，Windows 系统的的字体储存在 `C:\windows\Fonts` 目录，将其复制到服务器的 `/root/Fonts` 目录后，在服务器内完成安装
+```bash {.line-numbers}
+# 进入Fonts目录
+cd Fonts/
+
+# 删除其中的.fon字体文件(否则可能会报错)
+rm -r *.fon
+
+# 返回上层目录并打包
+cd ..
+tar -zcvf winfonts.tar.gz Fonts/
+
+# 把压缩文件传到sharelatex容器的root目录下
+docker cp winfonts.tar.gz sharelatex:/root
+
+# 进入容器的命令行界面
+docker exec -it sharelatex bash
+
+# 通过安装wqy字体同时安装xfont工具
+apt-get install xfonts-wqy
+
+# 进入root目录，解压winfonts.tar.gz，并移动到系统字体目录下
+cd ~
+tar -zxvf winfonts.tar.gz
+mv Fonts /usr/share/fonts/
+
+# 进入字体目录安装字体
+cd /usr/share/fonts/Fonts
+mkfontscale
+mkfontdir
+fc-cache -fv
+
+# 检查确认中文字体安装成功
+fc-list :lang=zh-cn
+#此时会出现已经安装的中文字体
+```
+
+重启服务
+```bash {.line-numbers}
+bin/stop
+bin/up
+```
+
+## 登录
+
+首先访问 `http://[your-server-ip-or-domain]:[your-port]/launchpad` 创建管理员，之后便可以访问 `http://[your-server-ip-or-domain]:[your-port]/login` 登录用户
