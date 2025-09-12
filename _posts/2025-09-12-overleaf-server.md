@@ -6,7 +6,7 @@ date: 2025-09-12
 categories: [Blog]   # 或 [Notes]、[Tech] 等
 tags: [LaTeX, Overleaf, Cloud Server]   # 随意
 # description: "文章摘要（用于预览/SEO）"
-# permalink: /blog/your-custom-link/   # 如需自定义链接可加
+permalink: /posts/2025/09/overleaf-server/   # 如需自定义链接可加
 # image: /images/cover/xxx.jpg         # 如有封面图
 ---
 
