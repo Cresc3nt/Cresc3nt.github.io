@@ -1,5 +1,5 @@
----
-# layout: post
+layout: single
+author_profile: true
 title: "在云服务器上部署私有 Overleaf 服务器"
 date: 2025-09-12
 # author:                           # 你的名字
@@ -13,11 +13,11 @@ tags:                               # 随意
     - Cloud Server   
 ---
 
-# 前言
+## 前言
 
 Overleaf 是全球最受欢迎的在线 LaTeX 编辑平台，但免费版的官方服务会限制编译时间，且项目私密性无法完全保证。本文推荐在自己的云服务器上部署私有 Overleaf 以获得更好的体验。
 
-# 安装 Docker 与 Docker Compose
+## 安装 Docker 与 Docker Compose
 
 首先更新系统
 ```Bash
@@ -59,7 +59,7 @@ docker run hello-world
 ```
 看到 `Hello from Docker!` 即表示成功！
 
-# 配置 Docker 镜像加速器
+## 配置 Docker 镜像加速器
 
 国内服务器访问 Docker Hub 经常超时，必须配置镜像加速器。首先创建配置文件
 ```Bash
@@ -86,7 +86,7 @@ docker info | grep -A 5 "Registry Mirrors"
 ```
 应看可以到配置的镜像地址。
 
-# 部署 Overleaf Toolkit
+## 部署 Overleaf Toolkit
 
 Overleaf 官方提供了 `overleaf/toolkit` 工具包，简化了部署流程。
 
@@ -146,7 +146,7 @@ bin/up
 ```
 现在会看到来自 docker 容器的一些日志输出，表示正在拉取镜像，后续会自动运行容器。如果在终端上按下 `Ctrl` + `c`，服务将关闭，可以通过命令 `bin/start` 来重新启动它们（不附加到日志输出）。
 
-# 安装完整的 texlive
+## 安装完整的 texlive
 
 社区版使用的 texlive 是最小安装的 texlive ，需要将其升级到完整版。
 ```Bash
@@ -177,7 +177,7 @@ bin/stop
 bin/start
 ```
 
-# 安装中文字体
+## 安装中文字体
 将本地的中文字体复制到服务器，Windows 系统的的字体储存在 `C:\windows\Fonts` 目录，将其复制到服务器的 `/root/Fonts` 目录后，在服务器内完成安装
 ```Bash
 # 进入Fonts目录
@@ -224,7 +224,7 @@ bin/stop
 bin/up
 ```
 
-# 清除原有镜像与容器
+## 清除原有镜像与容器
 
 有时，我们会不小心安装错误的镜像，这个时候我们需要确保旧的、错误的镜像和容器被完全清除。
 ```Bash
@@ -258,13 +258,13 @@ docker system prune -a
 bin/up
 ```
 
-# 登录
+## 登录
 
 首先访问 `http://<your-server-ip-or-domain>:<your-port>/launchpad` 创建管理员，之后便可以访问 `http://<your-server-ip-or-domain>:<your-port>/login` 登录用户。
 
 ![登录界面](/images/overleaf-server/login.png)
 
-# 添加账户
+## 添加账户
 
 在管理员账户主页，点击 `admin - Manage Users` 即可添加账户。
 
@@ -278,6 +278,6 @@ bin/up
 
 ![使用示例](/images/overleaf-server/example.png)
 
-# 总结
+## 总结
 
 本文提供了一套在国内网络环境下可复用、可维护且体验流畅的 Overleaf 私有部署方案。
