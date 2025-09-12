@@ -65,6 +65,7 @@ docker run hello-world
 国内服务器访问 Docker Hub 经常超时，必须配置镜像加速器。首先创建配置文件
 ```bash
 sudo mkdir -p /etc/docker
+
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
   "registry-mirrors": [
