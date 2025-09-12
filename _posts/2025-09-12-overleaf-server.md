@@ -13,56 +13,56 @@ tags:                               # 随意
     - Cloud Server   
 ---
 
-## 前言
+# 前言
 
 Overleaf 是全球最受欢迎的在线 LaTeX 编辑平台，但免费版的官方服务会限制编译时间，且项目私密性无法完全保证。本文推荐在自己的云服务器上部署私有 Overleaf 以获得更好的体验。
 
-## 安装 Docker 与 Docker Compose
+# 安装 Docker 与 Docker Compose
 
 首先更新系统
-```bash {.line-numbers}
+```Bash
 sudo apt update && sudo apt upgrade -y
 ```
 
 安装必要依赖
-```bash {.line-numbers}
+```Bash
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 ```
 
 添加 Docker 官方 GPG 密钥
-```bash {.line-numbers}
+```Bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 
 添加阿里云的 Docker APT 源（针对 Ubuntu 22.04 jammy）
-```bash {.line-numbers}
+```Bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 现在 `$(lsb_release -cs)` 会自动输出 `jammy`（Ubuntu 22.04 的代号）。
 
 接下来更新包索引并安装 Docker
-```bash {.line-numbers}
+```Bash
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 这里我们安装的是 `docker-compose-plugin`（新版），不是老版独立 `docker-compose`。它通过 `docker compose`（注意中间无横杠）命令使用，是官方推荐方式。 
 
 将当前用户加入 docker 组
-```bash {.line-numbers}
+```Bash
 sudo usermod -aG docker $USER
 ```
 这个时候需要退出并重新登录 SSH 会话，才会使权限生效。
 
 验证安装
-```bash {.line-numbers}
+```Bash
 docker run hello-world
 ```
 看到 `Hello from Docker!` 即表示成功！
 
-## 配置 Docker 镜像加速器
+# 配置 Docker 镜像加速器
 
 国内服务器访问 Docker Hub 经常超时，必须配置镜像加速器。首先创建配置文件
-```bash {.line-numbers}
+```Bash
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
@@ -75,35 +75,35 @@ EOF
 ```
 
 重启 Docker
-```bash {.line-numbers}
+```Bash
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
 验证加速器
-```bash {.line-numbers}
+```Bash
 docker info | grep -A 5 "Registry Mirrors"
 ```
 应看可以到配置的镜像地址。
 
-## 部署 Overleaf Toolkit
+# 部署 Overleaf Toolkit
 
 Overleaf 官方提供了 `overleaf/toolkit` 工具包，简化了部署流程。
 
 首先克隆仓库
-```bash {.line-numbers}
+```Bash
 git clone git@github.com:overleaf/toolkit.git ./overleaf-toolkit
 cd overleaf-toolkit
 ```
 
 初始化配置
-```bash {.line-numbers}
+```Bash
 bin/init
 ```
 这会在 `config/` 目录下生成 `overleaf.rc`, `variables.env`, `version` 三个文件。
 
 修改 `overleaf.rc` 中的内容
-```bash {.line-numbers}
+```Bash
 ## 设置访问地址（必须！）
 export OVERLEAF_URL="http://<your-server-ip-or-domain>:<your-port>"
 
@@ -121,7 +121,7 @@ export OVERLEAF_ADMIN_EMAIL="your-admin-email@example.com"
 ```
 
 修改 `variables.env` 中的内容
-```bash {.line-numbers}
+```Bash
 ## 设置 Overleaf 实例在系统内部的应用名称（用于日志、后台管理等）
 OVERLEAF_APP_NAME="Your Custom Overleaf Instance"
 
@@ -141,15 +141,15 @@ OVERLEAF_ADMIN_EMAIL=your-admin-email@example.com
 修改 `lib/docker-compose.base.yml` 中的内容，将 `image: "${IMAGE}` 修改为 `image: "sharelatex/sharelatex:latest"`。
 
 接下来启动服务
-```bash {.line-numbers}
+```Bash
 bin/up
 ```
 现在会看到来自 docker 容器的一些日志输出，表示正在拉取镜像，后续会自动运行容器。如果在终端上按下 `Ctrl` + `c`，服务将关闭，可以通过命令 `bin/start` 来重新启动它们（不附加到日志输出）。
 
-## 安装完整的 texlive
+# 安装完整的 texlive
 
 社区版使用的 texlive 是最小安装的 texlive ，需要将其升级到完整版。
-```bash {.line-numbers}
+```Bash
 # 进入容器
 bin/shell
 # 查看版本
@@ -177,9 +177,9 @@ bin/stop
 bin/start
 ```
 
-## 安装中文字体
+# 安装中文字体
 将本地的中文字体复制到服务器，Windows 系统的的字体储存在 `C:\windows\Fonts` 目录，将其复制到服务器的 `/root/Fonts` 目录后，在服务器内完成安装
-```bash {.line-numbers}
+```Bash
 # 进入Fonts目录
 cd Fonts/
 
@@ -219,15 +219,15 @@ fc-list :lang=zh-cn
 ```
 
 重启服务
-```bash {.line-numbers}
+```Bash
 bin/stop
 bin/up
 ```
 
-## 清除原有镜像与容器
+# 清除原有镜像与容器
 
 有时，我们会不小心安装错误的镜像，这个时候我们需要确保旧的、错误的镜像和容器被完全清除。
-```bash {.line-numbers}
+```Bash
 # 停止当前所有服务
 cd ~/overleaf-toolkit
 bin/stop
@@ -254,17 +254,17 @@ docker system prune -a
 ```
 
 之后便可以启动服务
-```bash {.line-numbers}
+```Bash
 bin/up
 ```
 
-## 登录
+# 登录
 
 首先访问 `http://<your-server-ip-or-domain>:<your-port>/launchpad` 创建管理员，之后便可以访问 `http://<your-server-ip-or-domain>:<your-port>/login` 登录用户。
 
 ![登录界面](/images/overleaf-server/login.png)
 
-## 添加账户
+# 添加账户
 
 在管理员账户主页，点击 `admin - Manage Users` 即可添加账户。
 
@@ -278,6 +278,6 @@ bin/up
 
 ![使用示例](/images/overleaf-server/example.png)
 
-## 总结
+# 总结
 
 本文提供了一套在国内网络环境下可复用、可维护且体验流畅的 Overleaf 私有部署方案。
