@@ -276,4 +276,8 @@ bin/up
 
 接下来，就可以愉快地使用 overleaf 啦。
 
+![使用示例](/images/overleaf-server/example.png)
 
+## 总结
+
+本文提供了一套在国内网络环境下可复用、可维护且体验流畅的 Overleaf 私有部署方案。
