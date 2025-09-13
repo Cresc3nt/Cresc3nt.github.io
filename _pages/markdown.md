@@ -7,6 +7,14 @@ redirect_from:
   - /markdown.html
 ---
 
+<div style="text-align: center; margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
+  <p style="margin: 0; font-size: 16px; color: #495057;">
+    <strong>Language / 语言:</strong> 
+    <span style="color: #007bff; font-weight: bold;">English</span> | 
+    <a href="/markdown-zh/" style="color: #6c757d; text-decoration: none;">中文</a>
+  </p>
+</div>
+
 {% include toc %}
 
 ## Locations of key files/directories
