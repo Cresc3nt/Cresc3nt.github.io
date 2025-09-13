@@ -16,6 +16,8 @@ tags:                               # 随意
 
 Overleaf 是全球最受欢迎的在线 LaTeX 编辑平台，但免费版的官方服务会限制编译时间，且项目私密性无法完全保证。本文推荐在自己的云服务器上部署私有 Overleaf 以获得更好的体验。
 
+{% include toc %}
+
 ## 安装 Docker 与 Docker Compose
 
 首先更新系统
