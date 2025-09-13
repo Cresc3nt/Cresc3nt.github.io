@@ -35,7 +35,7 @@ redirect_from:
 ## 提示和技巧
 
 * 将文件命名为 ".md" 可以以 Markdown 格式渲染，命名为 ".html" 可以以 HTML 格式渲染。
-* 访问您仓库的[提交列表](https://github.com/academicpages/academicpages.github.io/commits/master)来查找 GitHub 使用 Jekyll 构建的最后一个版本。
+* 访问您仓库的[提交列表](https://github.com/cresc3nt/cresc3nt.github.io/commits/master)来查找 GitHub 使用 Jekyll 构建的最后一个版本。
   * 绿色勾号：构建成功
   * 橙色圆圈：正在构建
   * 红色 X：构建错误
