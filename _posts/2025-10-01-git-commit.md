@@ -3,7 +3,7 @@ layout: post
 title: GitHub Commits 提交规范
 date: 2025-09-12 10:00:00
 description: Conventional Commits 是一种规范化的 git 提交信息格式，遵循规范可以有效提升 commit message 的可读性，也方便历史记录和版本控制。
-tags: Git "Conventional Commits"
+tags: [Git, Conventional Commits]
 categories: engineering
 ---
 

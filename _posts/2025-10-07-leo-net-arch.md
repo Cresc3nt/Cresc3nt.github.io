@@ -3,8 +3,11 @@ layout: post
 title: 低轨卫星网络架构
 date: 2025-10-07  10:00:00
 description: 本文将对低轨卫星网络架构进行简单梳理。
-tags: "LEO Satellite Networks" "Wireless Communications"
-categories: research
+tags:
+  - LEO Satellite Networks
+  - Wireless Communications
+categories:
+  - research
 ---
 
 ## 1. 低轨卫星参数
