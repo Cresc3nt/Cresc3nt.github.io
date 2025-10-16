@@ -256,7 +256,7 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["地轨卫星网络", "云服务器", "LaTeX", "Overleaf"] # these tags will be displayed on the front page of your blog
+display_tags: ["低轨卫星网络", "云服务器", "LaTeX", "Overleaf"] # these tags will be displayed on the front page of your blog
 display_categories: ["科研", "工程"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
