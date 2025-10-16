@@ -1,19 +1,19 @@
 ---
 layout: post
-title: a post with image galleries
+title: 带有图片画廊的文章
 date: 2024-12-04 01:59:00
-description: this is what included image galleries could look like
-tags: formatting images
-categories: sample-posts
-thumbnail: assets/img/9.jpg
-images:
-  lightbox2: true
-  photoswipe: true
-  spotlight: true
-  venobox: true
+description: 这是包含图片画廊的样子
+tags: [格式化, 图片]
+categories: [示例文章]
+thumbnail: assets/img/9.jpg  # 文章缩略图
+images:  # 图片画廊功能配置
+  lightbox2: true    # 启用Lightbox2
+  photoswipe: true   # 启用PhotoSwipe
+  spotlight: true    # 启用Spotlight
+  venobox: true      # 启用Venobox
 ---
 
-The images in this post are all zoomable, arranged into different mini-galleries using different libraries.
+这篇文章中的图片都是可缩放的，使用不同的库排列成不同的迷你画廊。
 
 ## [Lightbox2](https://lokeshdhakar.com/projects/lightbox2/)
 

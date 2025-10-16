@@ -3,7 +3,7 @@ layout: post
 title: 在云服务器上部署 RustDesk 自建服务器
 date: 2025-10-02 10:00:00
 description: RustDesk 作为一款开源、安全、跨平台的远程桌面软件，因其轻量、高效、无广告且支持自建服务器等特性，受到越来越多用户的青睐。自建 RustDesk 服务器不仅可以摆脱对官方服务器的依赖，还能完全掌控连接数据、提升连接速度与稳定性，尤其适合对隐私和性能有较高要求的个人或团队使用。
-tags: [RustDesk, Remote Desktop, Cloud Server]
+tags: [RustDesk, 远程桌面, 云服务器]
 categories: engineering
 ---
 

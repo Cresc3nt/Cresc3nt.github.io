@@ -1,17 +1,17 @@
 ---
 layout: post
-title: a post with custom blockquotes
+title: 带有自定义引用块的文章
 date: 2023-05-12 15:53:00-0400
-description: an example of a blog post with custom blockquotes
-tags: formatting blockquotes
-categories: sample-posts
-giscus_comments: true
-related_posts: true
+description: 带有自定义引用块的博客文章示例
+tags: [格式化, 引用块]
+categories: [示例文章]
+giscus_comments: true  # 启用Giscus评论系统
+related_posts: true    # 显示相关文章
 ---
 
-This post shows how to add custom styles for blockquotes. Based on [jekyll-gitbook](https://github.com/sighingnow/jekyll-gitbook) implementation.
+这篇文章展示了如何为引用块添加自定义样式。基于[jekyll-gitbook](https://github.com/sighingnow/jekyll-gitbook)实现。
 
-We decided to support the same custom blockquotes as in [jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html), which are also found in a lot of other sites' styles. The styles definitions can be found on the [\_base.scss](https://github.com/alshedivat/al-folio/blob/main/_sass/_base.scss) file, more specifically:
+我们决定支持与[jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html)中相同的自定义引用块，这些样式也在许多其他网站样式中找到。样式定义可以在[\_base.scss](https://github.com/alshedivat/al-folio/blob/main/_sass/_base.scss)文件中找到，更具体地说：
 
 ```scss
 /* Tips, warnings, and dangers */

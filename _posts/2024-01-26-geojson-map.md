@@ -1,14 +1,14 @@
 ---
 layout: post
-title: a post with geojson
+title: 带有GeoJSON的文章
 date: 2024-01-26 17:57:00
-description: this is what included geojson code could look like
-tags: formatting charts maps
-categories: sample-posts
-map: true
+description: 这是包含GeoJSON代码的样子
+tags: [格式化, 图表, 地图]
+categories: [示例文章]
+map: true  # 启用地图功能
 ---
 
-This is an example post with some [geojson](https://geojson.org/) code. The support is provided thanks to [Leaflet](https://leafletjs.com/). To create your own visualization, go to [geojson.io](https://geojson.io/).
+这是一篇包含一些[GeoJSON](https://geojson.org/)代码的示例文章。支持功能由[Leaflet](https://leafletjs.com/)提供。要创建您自己的可视化，请访问[geojson.io](https://geojson.io/)。
 
 ````markdown
 ```geojson

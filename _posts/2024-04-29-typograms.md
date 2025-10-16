@@ -1,14 +1,14 @@
 ---
 layout: post
-title: a post with typograms
+title: 带有Typograms的文章
 date: 2024-04-29 23:36:10
-description: this is what included typograms code could look like
-tags: formatting diagrams
-categories: sample-posts
-typograms: true
+description: 这是包含Typograms代码的样子
+tags: [格式化, 图表]
+categories: [示例文章]
+typograms: true  # 启用Typograms
 ---
 
-This is an example post with some [typograms](https://github.com/google/typograms/) code.
+这是一篇包含一些[Typograms](https://github.com/google/typograms/)代码的示例文章。
 
 ````markdown
 ```typograms

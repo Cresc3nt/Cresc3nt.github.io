@@ -1,36 +1,38 @@
 ---
 layout: post
-title: a post with formatting and links
+title: 格式化文本和链接的博客文章
 date: 2015-03-15 16:40:16
-description: march & april, looking forward to summer
-tags: formatting links
-categories: sample-posts
+description: 三月和四月，期待夏天的到来
+tags: [格式化, 链接]
+categories: [示例文章]
 ---
 
-Jean shorts raw denim Vice normcore, art party High Life PBR skateboard stumptown vinyl kitsch. Four loko meh 8-bit, tousled banh mi tilde forage Schlitz dreamcatcher twee 3 wolf moon. Chambray asymmetrical paleo salvia, sartorial umami four loko master cleanse drinking vinegar brunch. [Pinterest](https://www.pinterest.com) DIY authentic Schlitz, hoodie Intelligentsia butcher trust fund brunch shabby chic Kickstarter forage flexitarian. Direct trade <a href="https://en.wikipedia.org/wiki/Cold-pressed_juice">cold-pressed</a> meggings stumptown plaid, pop-up taxidermy. Hoodie XOXO fingerstache scenester Echo Park. Plaid ugh Wes Anderson, freegan pug selvage fanny pack leggings pickled food truck DIY irony Banksy.
+这是一篇展示Markdown格式化功能的示例文章。在这里你可以看到各种文本格式化的效果，包括链接、列表、引用等。
 
-#### Hipster list
+这篇文章将演示如何在博客中使用不同的Markdown语法来创建丰富的文本内容。
 
-- brunch
-- fixie
-- raybans
-- messenger bag
+#### 列表示例
 
-#### Check List
+- 早午餐
+- 固定齿轮自行车
+- 雷朋眼镜
+- 邮差包
 
-- [x] Brush Teeth
-- [ ] Put on socks
-  - [x] Put on left sock
-  - [ ] Put on right sock
-- [x] Go to school
+#### 待办事项列表
 
-Hoodie Thundercats retro, tote bag 8-bit Godard craft beer gastropub. Truffaut Tumblr taxidermy, raw denim Kickstarter sartorial dreamcatcher. Quinoa chambray slow-carb salvia readymade, bicycle rights 90's yr typewriter selfies letterpress cardigan vegan.
+- [x] 刷牙
+- [ ] 穿袜子
+  - [x] 穿左袜子
+  - [ ] 穿右袜子
+- [x] 去学校
+
+这些列表展示了Markdown中不同类型的列表语法。无序列表使用短横线，而待办事项列表使用方括号。
 
 <hr>
 
-Pug heirloom High Life vinyl swag, single-origin coffee four dollar toast taxidermy reprehenderit fap distillery master cleanse locavore. Est anim sapiente leggings Brooklyn ea. Thundercats locavore excepteur veniam eiusmod. Raw denim Truffaut Schlitz, migas sapiente Portland VHS twee Bushwick Marfa typewriter retro id keytar.
+通过这篇文章，你可以学习到如何在Jekyll博客中使用Markdown来创建格式化的内容。Markdown语法简洁而强大，非常适合写作。
 
-> We do not grow absolutely, chronologically. We grow sometimes in one dimension, and not in another, unevenly. We grow partially. We are relative. We are mature in one realm, childish in another.
-> —Anais Nin
+> 我们不会绝对地、按时间顺序地成长。我们有时在一个维度上成长，而在另一个维度上不成长，成长是不均匀的。我们是部分成长的。我们是相对的。我们在一个领域成熟，在另一个领域幼稚。
+> —阿奈丝·宁
 
-Fap aliqua qui, scenester pug Echo Park polaroid irony shabby chic ex cardigan church-key Odd Future accusamus. Blog stumptown sartorial squid, gastropub duis aesthetic Truffaut vero. Pinterest tilde twee, odio mumblecore jean shorts lumbersexual.
+这个引用块展示了如何在Markdown中创建引用。引用对于突出重要观点或名言非常有用。

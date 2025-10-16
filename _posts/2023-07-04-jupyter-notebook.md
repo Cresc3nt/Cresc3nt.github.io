@@ -1,15 +1,15 @@
 ---
 layout: post
-title: a post with jupyter notebook
+title: 带有Jupyter Notebook的文章
 date: 2023-07-04 08:57:00-0400
-description: an example of a blog post with jupyter notebook
-tags: formatting jupyter
-categories: sample-posts
-giscus_comments: true
-related_posts: false
+description: 带有Jupyter Notebook的博客文章示例
+tags: [格式化, jupyter]
+categories: [示例文章]
+giscus_comments: true  # 启用Giscus评论系统
+related_posts: false   # 不显示相关文章
 ---
 
-To include a jupyter notebook in a post, you can use the following code:
+要在文章中包含Jupyter Notebook，您可以使用以下代码：
 
 {% raw %}
 

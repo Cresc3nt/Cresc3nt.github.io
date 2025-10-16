@@ -4,10 +4,10 @@ title: 低轨卫星网络架构
 date: 2025-10-07  10:00:00
 description: 本文将对低轨卫星网络架构进行简单梳理。
 tags:
-  - LEO Satellite Networks
-  - Wireless Communications
+  - 低轨卫星网络
+  - 无线通信
 categories:
-  - research
+  - 科研
 ---
 
 ## 1. 低轨卫星参数

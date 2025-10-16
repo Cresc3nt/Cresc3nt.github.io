@@ -1,28 +1,28 @@
 ---
 layout: post
-title: a post with table of contents on a sidebar
+title: 带有侧边栏目录的文章
 date: 2023-04-25 10:14:00-0400
-description: an example of a blog post with table of contents on a sidebar
-tags: formatting toc sidebar
-categories: sample-posts
-giscus_comments: true
-related_posts: false
-toc:
-  sidebar: left
+description: 带有侧边栏目录的博客文章示例
+tags: [格式化, 目录, 侧边栏]
+categories: [示例文章]
+giscus_comments: true  # 启用Giscus评论系统
+related_posts: false   # 不显示相关文章
+toc:  # 目录配置
+  sidebar: left  # 在左侧显示侧边栏目录
 ---
 
-This post shows how to add a table of contents as a sidebar.
+这篇文章展示了如何添加侧边栏目录。
 
-## Adding a Table of Contents
+## 添加目录
 
-To add a table of contents to a post as a sidebar, simply add
+要将目录作为侧边栏添加到文章中，只需在文章的前置元数据中添加：
 
 ```yml
 toc:
   sidebar: left
 ```
 
-to the front matter of the post. The table of contents will be automatically generated from the headings in the post. If you wish to display the sidebar to the right, simply change `left` to `right`.
+目录将根据文章中的标题自动生成。如果您希望将侧边栏显示在右侧，只需将`left`改为`right`。
 
 ### Example of Sub-Heading 1
 

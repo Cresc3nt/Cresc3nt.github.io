@@ -1,28 +1,28 @@
 ---
 layout: post
-title: a post with table of contents
+title: 带有目录的文章
 date: 2023-03-20 11:59:00-0400
-description: an example of a blog post with table of contents
-tags: formatting toc
-categories: sample-posts
-giscus_comments: true
-related_posts: false
-toc:
-  beginning: true
+description: 带有目录的博客文章示例
+tags: [格式化, 目录]
+categories: [示例文章]
+giscus_comments: true  # 启用Giscus评论系统
+related_posts: false   # 不显示相关文章
+toc:  # 目录配置
+  beginning: true  # 在文章开头显示目录
 ---
 
-This post shows how to add a table of contents in the beginning of the post.
+这篇文章展示了如何在文章开头添加目录。
 
-## Adding a Table of Contents
+## 添加目录
 
-To add a table of contents to a post, simply add
+要为文章添加目录，只需在文章的前置元数据中添加：
 
 ```yml
 toc:
   beginning: true
 ```
 
-to the front matter of the post. The table of contents will be automatically generated from the headings in the post.
+目录将根据文章中的标题自动生成。
 
 ### Example of Sub-Heading 1
 

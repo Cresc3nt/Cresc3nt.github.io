@@ -1,14 +1,14 @@
 ---
 layout: post
-title: a post with pseudo code
+title: 带有伪代码的文章
 date: 2024-04-15 00:01:00
-description: this is what included pseudo code could look like
-tags: formatting code
-categories: sample-posts
-pseudocode: true
+description: 这是包含伪代码的样子
+tags: [格式化, 代码]
+categories: [示例文章]
+pseudocode: true  # 启用伪代码渲染
 ---
 
-This is an example post with some pseudo code rendered by [pseudocode](https://github.com/SaswatPadhi/pseudocode.js). The example presented here is the same as the one in the [pseudocode.js](https://saswat.padhi.me/pseudocode.js/) documentation, with only one simple but important change: everytime you would use `$`, you should use `$$` instead. Also, note that the `pseudocode` key in the front matter is set to `true` to enable the rendering of pseudo code. As an example, using this code:
+这是一篇包含一些由[pseudocode](https://github.com/SaswatPadhi/pseudocode.js)渲染的伪代码的示例文章。这里展示的示例与[pseudocode.js](https://saswat.padhi.me/pseudocode.js/)文档中的示例相同，只有一个简单但重要的变化：每当您使用`$`时，您应该使用`$$`代替。另外，请注意前置元数据中的`pseudocode`键设置为`true`以启用伪代码的渲染。例如，使用此代码：
 
 ````markdown
 ```pseudocode
