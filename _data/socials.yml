@@ -33,7 +33,7 @@ github_username: Cresc3nt # your GitHub user name
 # publons_id: # your ID on Publons
 # quora_username: # your Quora username
 # research_gate_profile: # your profile on ResearchGate
-rss_icon: true # comment this line to hide the RSS icon
+# rss_icon: true # comment this line to hide the RSS icon
 # scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
 # scopus_id: # your profile on Scopus
 # semanticscholar_id: # your Semantic Scholar ID
@@ -51,7 +51,7 @@ rss_icon: true # comment this line to hide the RSS icon
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
 zhihu_profile:
-  logo: https://static.zhihu.com/heifetz/favicon.ico
+  logo: https://fontawesome.com/icons/zhihu?f=brands&s=solid
   title: 知乎
   url: https://www.zhihu.com/people/leave-2-99
 custom_social: # can be any name here other than the ones already defined above
