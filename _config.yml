@@ -4,7 +4,7 @@
 
 title: Yuxuan(黄钰轩)'s Homepage # the website title (if blank, full name will be used instead)
 first_name: Yuxuan
-# middle_name: 
+# middle_name:
 last_name: Huang
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
@@ -113,7 +113,7 @@ giscus:
   dark_theme: dark # name of the dark color scheme (preferred works well with al-folio dark mode)
   light_theme: light # name of the light color scheme (preferred works well with al-folio light mode)
   emit_metadata: 0
-  lang: en
+  lang: cn
 
 # Disqus comments (DEPRECATED)
 disqus_shortname: al-folio # put your disqus shortname
