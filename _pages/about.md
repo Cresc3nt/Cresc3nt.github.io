@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Research Assistant at SIGIoX Lab, <a href='https://nuaa.edu.cn/'>NUAA</a>.
 
 profile:
   align: right
@@ -11,15 +11,15 @@ profile:
   more_info: >
     <p>B.Eng. in IoT Engineering, NUAA</p>
     <p>Nanjing, Jiangsu</p>
-    <p>crescentrose[at]nuaa[dot]edu[dot]cn</p>
+    # <p>crescentrose[at]nuaa[dot]edu[dot]cn</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+# selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
-announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+# announcements:
+#   enabled: true # includes a list of news items
+#   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
+#   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: true
@@ -27,8 +27,4 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
-
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I received my B.Eng. degree in Internet of Things Engineering in 2025 from <a href="https://cs.nuaa.edu.cn/">College of Computer Science and Technology</a>, <a href="https://nuaa.edu.cn/">Nanjing University of Aeronautics and Astronautics (NUAA)</a>, China, under the supervision of <a href="http://inet-nuaa.cn/kunzhu/">Prof. Kun Zhu</a>. I am currently serving as a Research Assistant in the SIGIoX Lab at NUAA working under the guidance of <a href="https://faculty.nuaa.edu.cn/xuzhuqing/zh_CN/index.htm">Dr. Zhuqing Xu</a> on research related to LEO satellite networks. My research interests include intelligent IoT, LEO satellite networks, and autonomous robot navigation.
