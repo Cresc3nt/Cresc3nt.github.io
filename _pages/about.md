@@ -39,7 +39,7 @@ I received my B.Eng. degree in Internet of Things Engineering in 2025 from <a hr
     B.Eng. in Internet of Things Engineering, 2021–2025
   </div>
   <div style="text-align: right;">
-    <img src="../images/nuaa-logo.png" width="60" alt="NUAA Logo" />
+    <img src="https://cresc3nt.github.io/assets/img/nuaa-logo.png" width="60" alt="NUAA Logo" />
   </div>
 </div>
 
