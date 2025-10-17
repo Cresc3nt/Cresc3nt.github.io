@@ -9,16 +9,24 @@ tags:
 categories:
   - 科研
 
-toc:  # 目录配置
-  sidebar: left  # 在左侧显示侧边栏目录
+toc:                                             # 目录配置
+  sidebar: left                                  # 在左侧显示侧边栏目录
+
+bibliography: blogs/2025-10-07-leo-net-arch.bib  # 启用参考文献
+
+pretty_table: true                               # 启用美化表格功能（通常用于加载 Bootstrap Table 等表格样式或脚本）
 ---
+
+## 前言
+
+本文将对低轨卫星网络架构进行简单梳理<d-cite key="DBLP:phd/basesearch/Bhattacherjee21"></d-cite>。
 
 ## 1. 低轨卫星参数
 
 所有现代低轨宽带星座均采用**圆形轨道**，以确保全球服务的一致性和简化轨道管理。描述一颗低轨卫星主要涉及四个参数：
 
 | 参数 | 符号 | 说明 |
-|------|------|------|
+|:----:|:----:|:-----|
 | Inclination (轨道倾角) | $i$ | 轨道面与赤道面夹角，决定纬度覆盖范围 |
 | Height (轨道高度) | $h$ | 卫星距地表高度，影响延迟、寿命与速度 |
 | Minimum angle of elevation (最小仰角) | $e$ | 地面站可见卫星的最低仰角，权衡覆盖与信号质量 |
@@ -36,9 +44,14 @@ toc:  # 目录配置
 
 下图展示了5条极地轨道与五条非极地轨道。
 
-![polar and inclined orbits](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/polar-and-inclined-orbits.png)
-
-
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-10-07-leo-net-arch/polar-and-inclined-orbits.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    polar and inclined orbits
+</div>
 
 ### 1.2 轨道高度 (Height, $h$)
 
@@ -66,7 +79,14 @@ toc:  # 目录配置
   - Starlink初期用 $e$ = 25°，后期提升至 40°。
   - Telesat计划用 $e$ = 10°（但可行性存疑）。
 
-![radius-of-coverage](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/radius-of-coverage.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-10-07-leo-net-arch/radius-of-coverage.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    radius-of-coverage
+</div>
 
 ### 1.4 相位偏移 (Phase Offset, $p$ or $\varphi$)
 
@@ -111,14 +131,28 @@ GSL 使用射频而非激光，因其对云层和降水更具鲁棒性。每颗�
 > 💡 卫星的星下点（nadir）是指从卫星向地心方向作一条直线，该直线与地球表面相交的点，也就是卫星正下方的地表位置。在轨道力学和卫星通信中，星下点具有特殊意义：此时地面站与卫星之间的距离最短，信号路径损耗最小，通信质量最好。例如，在计算地星链路（GSL）带宽时，只有当用户终端恰好位于卫星的星下点、且该卫星波束覆盖范围内没有其他用户共享资源时，才能获得该链路的最大可用带宽。随着地面站偏离星下点，星地距离增加，路径损耗增大，可用带宽随之下降，通常建模为与 $h^2/d_s^2$ 成正比（其中 $h$ 为轨道高度，$d_s$为实际星地距离）。因此，星下点是评估卫星覆盖性能和链路质量的关键参考位置。
 {: .block-tip }
 
-![GSL](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/GSL.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-10-07-leo-net-arch/GSL.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    GSL
+</div>
 
 相比之下，ISL 是实现低延迟端到端通信的关键。当前行业普遍采用 “+Grid” 拓扑：每颗卫星通过激光链路连接 4 个邻居——同轨道前后各 1 颗，相邻轨道各 1 颗。这种结构在卫星相对速度较低时可维持长期稳定连接，避免频繁切换。ISL 使用激光，因其波束极窄、发散小、干扰低。但其长度受物理限制：激光不能进入 80 km 以下大气层（中层大气含水汽，会散射光束），因此给定轨道高度 $h_ S$ ，可计算最大 ISL 距离。例如，Starlink S1（$h$=550 km）的最大 ISL 长度约为 5,014 km。在稀疏星座中，ISL 仅限相邻轨道；但在密集星座中，一颗卫星理论上可连接上百颗其他卫星。然而，实际部署仍受限于：
 - 功耗约束：更长距离需更高发射功率；
 - 设备重量与成本：大功率激光终端更重、更贵；
 - 热管理与指向精度：高速运动下维持激光对准极具挑战。
 
-![ISL](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/ISL.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-10-07-leo-net-arch/ISL.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    ISL
+</div>
 
 因此，尽管物理可见性允许更多连接，工程现实仍使 +Grid 成为主流选择。值得注意的是，若无 ISL，星座只能采用“弯管模式”（bent-pipe）——数据数据要么通过最近的基站（连接到互联网）传输，要么经过卫星和地面站的多次转发，导致跨洲通信延迟显著增加。Starlink 已发射具备 ISL 能力的卫星，但大规模运行细节尚未公开。
 
@@ -148,7 +182,14 @@ LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度�
 
 低轨（LEO）卫星星座不仅是一种全球覆盖的通信基础设施，更代表了一种突破现有地面光纤网络延迟瓶颈的新范式。当前互联网的高延迟部分源于光纤路径的物理限制：光在光纤中传播速度仅为真空中光速 $c$ 的约 2/3 ，且实际铺设路径受地形与经济因素制约，往往严重绕行。即便假设使用所有已知光纤并沿最短路径传输（即“f-latency”），其延迟仍显著高于理论极限（“c-latency”，即光在真空中沿大圆传播所需时间）。LEO 星座则通过近真空环境中的射频与激光链路，以接近光速 $c$ 直线传输数据，在长距离通信中展现出显著优势。仿真表明，一个中等规模的 LEO 星座（如 30²，即 900 颗卫星）在华盛顿特区至法兰克福的路径上，其端到端延迟几乎总是优于最优光纤（32.6 ms）；而更密集的星座（如 40²、50²）甚至能匹配或超越高频交易（HFT），逼近 c-latency（21.7 ms）。
 
-![华盛顿-法兰克福端到端通信延迟](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/latency-example.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-10-07-leo-net-arch/latency-example.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    华盛顿-法兰克福端到端通信延迟
+</div>
 
 > 📊 这张图展示了不同星座大小下华盛顿特区与法兰克福之间的延迟。CDF 曲线越靠左、越陡峭，说明该网络的延迟表现越好、越稳定。<br>
 > 纵轴（CDF）：累积分布函数，这里表示延迟小于或等于横轴值的概率。例如，如果某条曲线在横轴 35 ms 处对应的 CDF 值是 0.8，那就意味着，在这个星座配置下，有 80% 的时间，端到端延迟都小于或等于 35 毫秒。<br>
@@ -163,6 +204,6 @@ LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度�
 
 综上，LEO 星座通过其独特的空间路径与近光速传播能力，不仅在物理层面提供了超越地面光纤的低延迟可能性，更在应用层面回应了互联网对极致交互体验与商业效率的迫切需求。这一“技术潜力—应用价值”的双重优势，构成了推动 LEO 网络研究与部署的核心驱动力。
 
-## 参考文献
+<!-- ## 参考文献
 
-1. Debopam Bhattacherjee. *Towards Performant Networking from Low-Earth Orbit*. PhD thesis, ETH Zurich, August 2021. doi:[10.3929/ETHZ-B-000511115](https://doi.org/10.3929/ETHZ-B-000511115).
+1. Debopam Bhattacherjee. *Towards Performant Networking from Low-Earth Orbit*. PhD thesis, ETH Zurich, August 2021. doi:[10.3929/ETHZ-B-000511115](https://doi.org/10.3929/ETHZ-B-000511115). -->
