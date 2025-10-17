@@ -43,7 +43,7 @@ pretty_table: true                               # 启用美化表格功能（�
     <tr>
       <th class="text-center">参数</th>
       <th class="text-center">符号</th>
-      <th class="text-start">说明</th>
+      <th class="text-center">说明</th>
     </tr>
   </thead>
   <tbody>
@@ -154,7 +154,7 @@ pretty_table: true                               # 启用美化表格功能（�
     <tr>
       <th class="text-center">参数</th>
       <th class="text-center">符号</th>
-      <th class="text-start">说明</th>
+      <th class="text-center">说明</th>
     </tr>
   </thead>
   <tbody>
