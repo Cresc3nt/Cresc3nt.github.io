@@ -11,7 +11,7 @@ profile:
   more_info: >
     <p>B.Eng. in IoT Engineering, NUAA</p>
     <p>Nanjing, Jiangsu</p>
-    <p><a href="crescentrose&#64;nuaa&#46;edu&#46;cn">crescentrose&#64;nuaa&#46;edu&#46;cn</a></p>
+    <p><a href="mailto:crescentrose&#64;nuaa&#46;edu&#46;cn">crescentrose&#64;nuaa&#46;edu&#46;cn</a></p>
 
 # selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
