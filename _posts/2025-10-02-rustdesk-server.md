@@ -28,90 +28,120 @@ RustDesk Server 的进程占用端口情况如下：
 - 21117(TCP) - 用作中继服务
 - 21118/21119(TCP) - 为了支持网页客户端
 
-💡 如果启动的时候不加 `-k _` 参数，则不使用 `key` 也可以连接服务器。
-{: .notice}
+> 💡 如果启动的时候不加 `-k _` 参数，则不使用 `key` 也可以连接服务器。
 
 ## 环境配置
 
 设置时区（可选但推荐）
-```bash
+
+{% highlight bash linenos %}
+
 # 设置时区为东八区的上海
 sudo timedatectl set-timezone Asia/Shanghai
 date +%Z  # 应输出 CST
-```
+
+{% endhighlight %}
 
 更新系统并安装基础依赖
-```bash
+
+{% highlight bash linenos %}
+
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl htop wget unzip -y
-```
+
+{% endhighlight %}
 
 安装 Node.js 与 npm
-```bash
+
+{% highlight bash linenos %}
+
 sudo apt install nodejs npm -y
 node -v  # 查看 Node.js 版本
 npm -v   # 查看 npm 版本
-```
+
+{% endhighlight %}
 
 安装 pm2
-```bash
+
+{% highlight bash linenos %}
+
 sudo npm install -g pm2
 pm2 --version  # 查看pm2的版本
-```
+
+{% endhighlight %}
 
 创建 pm2 开机启动脚本
-```bash
+
+{% highlight bash linenos %}
+
 pm2 completion install  # 根据提示信息完成
-```
+
+{% endhighlight %}
 
 设置 pm2 开机启动
-```bash
+
+{% highlight bash linenos %}
+
 sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u ${USER} --hp ${HOME}
 sudo systemctl enable pm2-${USER}
-```
+
+{% endhighlight %}
 
 ## 安装并部署 RustDesk-Server
 
 执行以下命令自动获取 GitHub 上 `rustdesk/rustdesk-server` 仓库的最新发布版本并下载
 
-```bash
+{% highlight bash linenos %}
+
 REPO="rustdesk/rustdesk-server"
 latest_tag=$(curl -s https://api.github.com/repos/$REPO/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 echo "Using rustdesk-server version $latest_tag"
 
 wget https://github.com/$REPO/releases/download/$latest_tag/rustdesk-server-linux-amd64.zip
-```
+
+{% endhighlight %}
 
 解压并整理文件
-```bash
+
+{% highlight bash linenos %}
+
 unzip rustdesk-server-linux-amd64.zip
 mv amd64 ~/rustdesk-server
 rm -f rustdesk-server-linux-amd64.zip
-```
+
+{% endhighlight %}
 
 此时，RustDesk 的两个核心可执行文件 `hbbs` 和 `hbbr` 已位于 `~/rustdesk-server/` 目录下。
 
 进入 RustDesk 目录并启动两个服务
-```bash
+
+{% highlight bash linenos %}
+
 cd ~/rustdesk-server
 pm2 start hbbs -- -k _
 pm2 start hbbr -- -k _
-```
 
-💡 `-k _`：表示不启用密钥验证（即客户端无需填写密钥即可连接）。若需启用密钥认证，可替换 `_` 为自定义密钥，如 `-k mysecret123` 。
-{: .notice}
+{% endhighlight %}
+
+> 💡 `-k _`：表示不启用密钥验证（即客户端无需填写密钥即可连接）。若需启用密钥认证，可替换 `_` 为自定义密钥，如 `-k mysecret123` 。
 
 保存 PM2 进程状态（用于开机恢复）
-```bash
+
+{% highlight bash linenos %}
+
 pm2 save
-```
+
+{% endhighlight %}
 
 此命令会将当前运行的进程列表保存，配合之前配置的 `pm2 startup`，确保系统重启后服务自动恢复。
 
 验证服务是否正常运行
-```bash
+
+{% highlight bash linenos %}
+
 pm2 list
-```
+
+{% endhighlight %}
 
 应看到类似如下输出
 ```bash

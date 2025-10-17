@@ -10,49 +10,76 @@ categories: 工程
 ## 安装 Docker 与 Docker Compose
 
 首先更新系统
-```bash
+
+{% highlight bash linenos %}
+
 sudo apt update && sudo apt upgrade -y
-```
+
+{% endhighlight %}
 
 安装必要依赖
-```bash
+
+{% highlight bash linenos %}
+
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-```
+
+{% endhighlight %}
 
 添加 Docker 官方 GPG 密钥
-```bash
+
+{% highlight bash linenos %}
+
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-```
+
+{% endhighlight %}
 
 添加阿里云的 Docker APT 源（针对 Ubuntu 22.04 jammy）
-```bash
+
+{% highlight bash linenos %}
+
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-```
+
+{% endhighlight %}
+
 现在 `$(lsb_release -cs)` 会自动输出 `jammy`（Ubuntu 22.04 的代号）。
 
 接下来更新包索引并安装 Docker
-```bash
+
+{% highlight bash linenos %}
+
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
+
+{% endhighlight %}
+
 这里我们安装的是 `docker-compose-plugin`（新版），不是老版独立 `docker-compose`。它通过 `docker compose`（注意中间无横杠）命令使用，是官方推荐方式。 
 
 将当前用户加入 docker 组
-```bash
+
+{% highlight bash linenos %}
+
 sudo usermod -aG docker $USER
-```
+
+{% endhighlight %}
+
 这个时候需要退出并重新登录 SSH 会话，才会使权限生效。
 
 验证安装
-```bash
+
+{% highlight bash linenos %}
+
 docker run hello-world
-```
+
+{% endhighlight %}
+
 看到 `Hello from Docker!` 即表示成功！
 
 ## 配置 Docker 镜像加速器
 
 国内服务器访问 Docker Hub 经常超时，必须配置镜像加速器。首先创建配置文件
-```bash
+
+{% highlight bash linenos %}
+
 sudo mkdir -p /etc/docker
 
 sudo tee /etc/docker/daemon.json <<-'EOF'
@@ -63,18 +90,26 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
   ]
 }
 EOF
-```
+
+{% endhighlight %}
 
 重启 Docker
-```bash
+
+{% highlight bash linenos %}
+
 sudo systemctl daemon-reload
 sudo systemctl restart docker
-```
+
+{% endhighlight %}
 
 验证加速器
-```bash
+
+{% highlight bash linenos %}
+
 docker info | grep -A 5 "Registry Mirrors"
-```
+
+{% endhighlight %}
+
 应看可以到配置的镜像地址。
 
 ## 部署 Overleaf Toolkit
@@ -82,19 +117,28 @@ docker info | grep -A 5 "Registry Mirrors"
 Overleaf 官方提供了 `overleaf/toolkit` 工具包，简化了部署流程。
 
 首先克隆仓库
-```bash
+
+{% highlight bash linenos %}
+
 git clone git@github.com:overleaf/toolkit.git ./overleaf-toolkit
 cd overleaf-toolkit
-```
+
+{% endhighlight %}
 
 初始化配置
-```bash
+
+{% highlight bash linenos %}
+
 bin/init
-```
+
+{% endhighlight %}
+
 这会在 `config/` 目录下生成 `overleaf.rc`, `variables.env`, `version` 三个文件。
 
 修改 `overleaf.rc` 中的内容
-```bash
+
+{% highlight bash linenos %}
+
 ## 设置访问地址（必须！）
 export OVERLEAF_URL="http://<your-server-ip-or-domain>:<your-port>"
 
@@ -109,10 +153,13 @@ export OVERLEAF_ADMIN_EMAIL="your-admin-email@example.com"
 
 ## 关闭公开注册（可选）
 # export OVERLEAF_SIGNUPS_ENABLED=false
-```
+
+{% endhighlight %}
 
 修改 `variables.env` 中的内容
-```bash
+
+{% highlight bash linenos %}
+
 ## 设置 Overleaf 实例在系统内部的应用名称（用于日志、后台管理等）
 OVERLEAF_APP_NAME="Your Custom Overleaf Instance"
 
@@ -127,20 +174,27 @@ OVERLEAF_ADMIN_EMAIL=your-admin-email@example.com
 
 ## （可选）自定义页面顶部 Logo 图片地址，当前注释表示使用默认样式
 # OVERLEAF_HEADER_IMAGE_URL=http://example.com/logo.png
-```
+
+{% endhighlight %}
 
 修改 `lib/docker-compose.base.yml` 中的内容，将 `image: "${IMAGE}` 修改为 `image: "sharelatex/sharelatex:latest"`。
 
 接下来启动服务
-```bash
+
+{% highlight bash linenos %}
+
 bin/up
-```
+
+{% endhighlight %}
+
 现在会看到来自 docker 容器的一些日志输出，表示正在拉取镜像，后续会自动运行容器。如果在终端上按下 `Ctrl` + `c`，服务将关闭，可以通过命令 `bin/start` 来重新启动它们（不附加到日志输出）。
 
 ## 安装完整的 texlive
 
 社区版使用的 texlive 是最小安装的 texlive ，需要将其升级到完整版。
-```bash
+
+{% highlight bash linenos %}
+
 # 进入容器
 bin/shell
 # 查看版本
@@ -166,11 +220,14 @@ tlmgr install scheme-full
 # 重启容器
 bin/stop 
 bin/start
-```
+
+{% endhighlight %}
 
 ## 安装中文字体
 将本地的中文字体复制到服务器，Windows 系统的的字体储存在 `C:\windows\Fonts` 目录，将其复制到服务器的 `/root/Fonts` 目录后，在服务器内完成安装
-```bash
+
+{% highlight bash linenos %}
+
 # 进入Fonts目录
 cd Fonts/
 
@@ -206,19 +263,25 @@ fc-cache -fv
 
 # 检查确认中文字体安装成功
 fc-list :lang=zh-cn
-#此时会出现已经安装的中文字体
-```
+# 此时会出现已经安装的中文字体
+
+{% endhighlight %}
 
 重启服务
-```bash
+
+{% highlight bash linenos %}
+
 bin/stop
 bin/up
-```
+
+{% endhighlight %}
 
 ## 清除原有镜像与容器
 
 有时，我们会不小心安装错误的镜像，这个时候我们需要确保旧的、错误的镜像和容器被完全清除。
-```bash
+
+{% highlight bash linenos %}
+
 # 停止当前所有服务
 cd ~/overleaf-toolkit
 bin/stop
@@ -242,12 +305,16 @@ docker rmi <CUSTOM_IMAGE_NAME:TAG>
 docker system prune -a
 # 系统会提示确认，输入 'y' 并回车。
 # 注意：此命令会删除所有未被容器使用的镜像、网络、构建缓存等。
-```
+
+{% endhighlight %}
 
 之后便可以启动服务
-```bash
+
+{% highlight bash linenos %}
+
 bin/up
-```
+
+{% endhighlight %}
 
 ## 登录
 

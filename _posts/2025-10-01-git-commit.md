@@ -10,11 +10,14 @@ categories: 工程
 ## 基本格式
 
 Conventional Commits 的基本格式如下：
-```bash
+
+{% highlight bash linenos %}
+
 <type>[optional scope]: <description>
 [optional body]
 [optional footer(s)]
-```
+
+{% endhighlight %}
 
 其中 `<type>` 表示提交类型（必填），也决定了它在 changelog 中的分类，通常有以下几种：
 
