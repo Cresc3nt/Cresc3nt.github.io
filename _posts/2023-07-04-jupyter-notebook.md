@@ -15,8 +15,8 @@ related_posts: false   # 不显示相关文章
 
 ```liquid
 {::nomarkdown}
-{% assign jupyter_path = 'assets/jupyter/blog.ipynb' | relative_url %}
-{% capture notebook_exists %}{% file_exists assets/jupyter/blog.ipynb %}{% endcapture %}
+{% assign jupyter_path = 'assets/jupyter/blogs/2023-07-04-jupyter-notebook/blog.ipynb' | relative_url %}
+{% capture notebook_exists %}{% file_exists assets/jupyter/blogs/2023-07-04-jupyter-notebook/blog.ipynb %}{% endcapture %}
 {% if notebook_exists == 'true' %}
   {% jupyter_notebook jupyter_path %}
 {% else %}
@@ -32,8 +32,8 @@ related_posts: false   # 不显示相关文章
 该插件接收 Notebook 的路径作为输入，但它默认文件一定存在。如果您希望在调用插件前先检查文件是否存在，可以使用 `file_exists` 过滤器。这样可以避免因插件找不到文件而返回 404 错误，并防止将网站首页错误地嵌入到该位置。如果文件不存在，您可以向用户显示一条提示信息。上面展示的代码会输出如下内容：
 
 {::nomarkdown}
-{% assign jupyter_path = "assets/jupyter/blog.ipynb" | relative_url %}
-{% capture notebook_exists %}{% file_exists assets/jupyter/blog.ipynb %}{% endcapture %}
+{% assign jupyter_path = "assets/jupyter/blogs/2023-07-04-jupyter-notebook/blog.ipynb" | relative_url %}
+{% capture notebook_exists %}{% file_exists assets/jupyter/blogs/2023-07-04-jupyter-notebook/blog.ipynb %}{% endcapture %}
 {% if notebook_exists == "true" %}
 {% jupyter_notebook jupyter_path %}
 {% else %}
