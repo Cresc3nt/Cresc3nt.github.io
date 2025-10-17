@@ -12,9 +12,9 @@ pseudocode: true  # 启用伪代码渲染
 
 ````markdown
 ```pseudocode
-% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
+% 以下快速排序算法摘自《算法导论》（第3版）第7章
 \begin{algorithm}
-\caption{Quicksort}
+\caption{快速排序}
 \begin{algorithmic}
 \PROCEDURE{Quicksort}{$$A, p, r$$}
     \IF{$$p < r$$}
@@ -29,10 +29,9 @@ pseudocode: true  # 启用伪代码渲染
     \FOR{$$j = p$$ \TO $$r - 1$$}
         \IF{$$A[j] < x$$}
             \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
+            \STATE 交换 $$A[i]$$ 与 $$A[j]$$
         \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
+        \STATE 交换 $$A[i]$$ 与 $$A[r]$$
     \ENDFOR
 \ENDPROCEDURE
 \end{algorithmic}
@@ -40,12 +39,12 @@ pseudocode: true  # 启用伪代码渲染
 ```
 ````
 
-Generates:
+将生成如下结果：
 
 ```pseudocode
-% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
+% 以下快速排序算法摘自《算法导论》（第3版）第7章
 \begin{algorithm}
-\caption{Quicksort}
+\caption{快速排序}
 \begin{algorithmic}
 \PROCEDURE{Quicksort}{$$A, p, r$$}
     \IF{$$p < r$$}
@@ -60,10 +59,9 @@ Generates:
     \FOR{$$j = p$$ \TO $$r - 1$$}
         \IF{$$A[j] < x$$}
             \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
+            \STATE 交换 $$A[i]$$ 与 $$A[j]$$
         \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
+        \STATE 交换 $$A[i]$$ 与 $$A[r]$$
     \ENDFOR
 \ENDPROCEDURE
 \end{algorithmic}

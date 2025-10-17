@@ -14,7 +14,7 @@ related_posts: true    # 显示相关文章
 我们决定支持与[jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html)中相同的自定义引用块，这些样式也在许多其他网站样式中找到。样式定义可以在[\_base.scss](https://github.com/alshedivat/al-folio/blob/main/_sass/_base.scss)文件中找到，更具体地说：
 
 ```scss
-/* Tips, warnings, and dangers */
+/* 提示、警告和危险块 */
 .post .post-content blockquote {
   &.block-tip {
     border-color: var(--global-tip-block);
@@ -72,60 +72,58 @@ related_posts: true    # 显示相关文章
 }
 ```
 
-A regular blockquote can be used as following:
+普通的引用块可以如下使用：
 
 ```markdown
-> This is a regular blockquote
-> and it can be used as usual
+> 这是一个普通的引用块，
+> 可以像往常一样使用。
 ```
 
-> This is a regular blockquote
-> and it can be used as usual
+> 这是一个普通的引用块，
+> 可以像往常一样使用。
 
-These custom styles can be used by adding the specific class to the blockquote, as follows:
+这些自定义样式可以通过为引用块添加特定的 class 来使用，如下所示：
 
 <!-- prettier-ignore-start -->
 
 ```markdown
-> ##### TIP
+> ##### 提示
 >
-> A tip can be used when you want to give advice
-> related to a certain content.
+> 当你想就某项内容提供建议时，
+> 可以使用提示块。
 {: .block-tip }
 ```
 
-> ##### TIP
+> ##### 提示
 >
-> A tip can be used when you want to give advice
-> related to a certain content.
+> 当你想就某项内容提供建议时，
+> 可以使用提示块。
 {: .block-tip }
 
 ```markdown
-> ##### WARNING
+> ##### 警告
 >
-> This is a warning, and thus should
-> be used when you want to warn the user
+> 这是一个警告，应在你想提醒用户
+> 注意某些事项时使用。
 {: .block-warning }
 ```
 
-> ##### WARNING
+> ##### 警告
 >
-> This is a warning, and thus should
-> be used when you want to warn the user
+> 这是一个警告，应在你想提醒用户
+> 注意某些事项时使用。
 {: .block-warning }
 
 ```markdown
-> ##### DANGER
+> ##### 危险
 >
-> This is a danger zone, and thus should
-> be used carefully
+> 这是一个危险区域，应谨慎使用。
 {: .block-danger }
 ```
 
-> ##### DANGER
+> ##### 危险
 >
-> This is a danger zone, and thus should
-> be used carefully
+> 这是一个危险区域，应谨慎使用。
 {: .block-danger }
 
 <!-- prettier-ignore-end -->

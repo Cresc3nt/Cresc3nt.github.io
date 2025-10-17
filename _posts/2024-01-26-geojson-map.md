@@ -51,7 +51,7 @@ map: true  # 启用地图功能
 ```
 ````
 
-Which generates:
+渲染结果如下：
 
 ```geojson
 {
@@ -91,3 +91,4 @@ Which generates:
   ]
 }
 ```
+该 GeoJSON 数据定义了一个多边形区域，通常用于在地图上高亮显示特定地理范围。借助 al-folio 主题内置的 Leaflet 支持，此类 GeoJSON 内容可自动渲染为交互式地图。

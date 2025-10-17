@@ -20,16 +20,16 @@ related_posts: false   # 不显示相关文章
 {% if notebook_exists == 'true' %}
   {% jupyter_notebook jupyter_path %}
 {% else %}
-  <p>Sorry, the notebook you are looking for does not exist.</p>
+  <p>抱歉，您要查找的 Notebook 不存在。</p>
 {% endif %}
 {:/nomarkdown}
 ```
 
 {% endraw %}
 
-Let's break it down: this is possible thanks to [Jekyll Jupyter Notebook plugin](https://github.com/red-data-tools/jekyll-jupyter-notebook) that allows you to embed jupyter notebooks in your posts. It basically calls [`jupyter nbconvert --to html`](https://nbconvert.readthedocs.io/en/latest/usage.html#convert-html) to convert the notebook to an html page and then includes it in the post. Since [Kramdown](https://jekyllrb.com/docs/configuration/markdown/) is the default Markdown renderer for Jekyll, we need to surround the call to the plugin with the [::nomarkdown](https://kramdown.gettalong.org/syntax.html#extensions) tag so that it stops processing this part with Kramdown and outputs the content as-is.
+我们来分解一下：这一功能得益于 [Jekyll Jupyter Notebook 插件](https://github.com/red-data-tools/jekyll-jupyter-notebook) ，它允许您将 Jupyter Notebook 嵌入到文章中。该插件本质上会调用 [`jupyter nbconvert --to html`](https://nbconvert.readthedocs.io/en/latest/usage.html#convert-html) ，将 Notebook 转换为 HTML 页面，然后将其嵌入到文章中。由于 [Kramdown](https://jekyllrb.com/docs/configuration/markdown/) 是 Jekyll 默认的 Markdown 渲染器，我们需要用 [::nomarkdown](https://kramdown.gettalong.org/syntax.html#extensions) 标签将插件调用包裹起来，以防止 Kramdown 对该部分内容进行处理，从而原样输出内容。
 
-The plugin takes as input the path to the notebook, but it assumes the file exists. If you want to check if the file exists before calling the plugin, you can use the `file_exists` filter. This avoids getting a 404 error from the plugin and ending up displaying the main page inside of it instead. If the file does not exist, you can output a message to the user. The code displayed above outputs the following:
+该插件接收 Notebook 的路径作为输入，但它默认文件一定存在。如果您希望在调用插件前先检查文件是否存在，可以使用 `file_exists` 过滤器。这样可以避免因插件找不到文件而返回 404 错误，并防止将网站首页错误地嵌入到该位置。如果文件不存在，您可以向用户显示一条提示信息。上面展示的代码会输出如下内容：
 
 {::nomarkdown}
 {% assign jupyter_path = "assets/jupyter/blog.ipynb" | relative_url %}
@@ -38,8 +38,8 @@ The plugin takes as input the path to the notebook, but it assumes the file exis
 {% jupyter_notebook jupyter_path %}
 {% else %}
 
-<p>Sorry, the notebook you are looking for does not exist.</p>
+<p>抱歉，您要查找的 Notebook 不存在。</p>
 {% endif %}
 {:/nomarkdown}
 
-Note that the jupyter notebook supports both light and dark themes.
+请注意，Jupyter Notebook 支持亮色和暗色两种主题。
