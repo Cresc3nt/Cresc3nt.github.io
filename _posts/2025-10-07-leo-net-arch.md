@@ -181,8 +181,6 @@ pretty_table: true                               # 启用美化表格功能（�
   </tbody>
 </table>
 
-<!-- 可以参考[示例1](https://cresc3nt.github.io/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example1.html)与[示例2](https://cresc3nt.github.io/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example2.html)，它们分别描述了4条轨道与32条轨道时的壳层样例。 -->
-
 可以参考<a href="/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example1.html" target="_blank">示例1</a>与<a href="/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example2.html" target="_blank">示例2</a>，它们分别描述了4条轨道与32条轨道时的壳层样例。
 
 > 💡 许多研究中使用 $o^2$ 来表示星座的大小，代表有 $o$ 条轨道，同时每条轨道上有 $n = o$ 颗卫星。这种对称设计便于仿真中控制变量，同时能直观反映星座密度对延迟和连通性的影响。
