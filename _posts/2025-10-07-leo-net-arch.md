@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: distill
 title: 低轨卫星网络架构
 date: 2025-10-07  10:00:00
 description: 本文将对低轨卫星网络架构进行简单梳理。
@@ -10,7 +10,7 @@ categories:
   - 科研
 
 toc:                                             # 目录配置
-  sidebar: left                                  # 在左侧显示侧边栏目录
+  sidebar: left                                  # 在左侧显示侧边栏目录 
 
 bibliography: blogs/2025-10-07-leo-net-arch.bib  # 启用参考文献
 
@@ -19,24 +19,42 @@ pretty_table: true                               # 启用美化表格功能（�
 
 ## 低轨卫星参数
 
-{% raw %}
-
 所有现代低轨宽带星座均采用**圆形轨道**，以确保全球服务的一致性和简化轨道管理。描述一颗低轨卫星主要涉及四个参数：
 
-| 参数 | 符号 | 说明 |
-|:----:|:----:|:-----|
-| Inclination (轨道倾角) | $i$ | 轨道面与赤道面夹角，决定纬度覆盖范围 |
-| Height (轨道高度) | $h$ | 卫星距地表高度，影响延迟、寿命与速度 |
-| Minimum angle of elevation (最小仰角) | $e$ | 地面站可见卫星的最低仰角，权衡覆盖与信号质量 |
-| Phase offset (相位偏移) | $p$ | 相邻轨道卫星的相对位置，用于均匀分布 |
-
-
-{% endraw %}
+<table class="table table-sm table-bordered">
+  <thead>
+    <tr>
+      <th class="text-center">参数</th>
+      <th class="text-center">符号</th>
+      <th class="text-start">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center">Inclination (轨道倾角)</td>
+      <td class="text-center">$i$</td>
+      <td class="text-start">轨道面与赤道面夹角，决定纬度覆盖范围</td>
+    </tr>
+    <tr>
+      <td class="text-center">Height (轨道高度)</td>
+      <td class="text-center">$h$</td>
+      <td class="text-start">卫星距地表高度，影响延迟、寿命与速度</td>
+    </tr>
+    <tr>
+      <td class="text-center">Minimum angle of elevation (最小仰角)</td>
+      <td class="text-center">$e$</td>
+      <td class="text-start">地面站可见卫星的最低仰角，权衡覆盖与信号质量</td>
+    </tr>
+    <tr>
+      <td class="text-center">Phase offset (相位偏移)</td>
+      <td class="text-center">$p$</td>
+      <td class="text-start">相邻轨道卫星的相对位置，用于均匀分布</td>
+    </tr>
+  </tbody>
+</table>
 
 <aside>
-  <p>
-    这篇文章主要参考了[Debopam Bhattacherjee](https://bdebopam.github.io/)博士毕业论文<d-cite key="DBLP:phd/basesearch/Bhattacherjee21"></d-cite>中的第二章。
-  </p>
+  <p>这篇文章主要参考了<a href="https://bdebopam.github.io/" target="_blank">Debopam Bhattacherjee 博士</a>的毕业论文<d-cite key="DBLP:phd/basesearch/Bhattacherjee21"></d-cite>中的第二章。</p>
 </aside>
 
 ### 轨道倾角 (Inclination, $i$)
@@ -117,12 +135,37 @@ pretty_table: true                               # 启用美化表格功能（�
 
 一个低轨卫星星座 $C$ 由 $s$ 个壳层（shell）构成，一个壳层由以下四个参数完全定义：
 
-| 参数 | 符号 | 说明 |
-|:----:|:----:|:-----|
-| Number of orbits (轨道数量) | *o* | 一个壳层中包含的轨道面数 |
-| Satellites per orbit (每轨卫星数) | *n* | 每条轨道上均匀分布的卫星数量 |
-| Inclination (轨道倾角) | *i* | 壳层中所有轨道共用的倾角 |
-| Height (轨道高度) | *h* | 壳层中所有卫星的运行高度 |
+<table class="table table-sm table-bordered">
+  <thead>
+    <tr>
+      <th class="text-center">参数</th>
+      <th class="text-center">符号</th>
+      <th class="text-start">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center">Number of orbits (轨道数量)</td>
+      <td class="text-center"><em>o</em></td>
+      <td class="text-start">一个壳层中包含的轨道面数</td>
+    </tr>
+    <tr>
+      <td class="text-center">Satellites per orbit (每轨卫星数)</td>
+      <td class="text-center"><em>n</em></td>
+      <td class="text-start">每条轨道上均匀分布的卫星数量</td>
+    </tr>
+    <tr>
+      <td class="text-center">Inclination (轨道倾角)</td>
+      <td class="text-center"><em>i</em></td>
+      <td class="text-start">壳层中所有轨道共用的倾角</td>
+    </tr>
+    <tr>
+      <td class="text-center">Height (轨道高度)</td>
+      <td class="text-center"><em>h</em></td>
+      <td class="text-start">壳层中所有卫星的运行高度</td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- 可以参考[示例1](https://cresc3nt.github.io/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example1.html)与[示例2](https://cresc3nt.github.io/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example2.html)，它们分别描述了4条轨道与32条轨道时的壳层样例。 -->
 
@@ -165,7 +208,7 @@ GSL 使用射频而非激光，因其对云层和降水更具鲁棒性。每颗�
 
 因此，尽管物理可见性允许更多连接，工程现实仍使 +Grid 成为主流选择。值得注意的是，若无 ISL，星座只能采用“弯管模式”（bent-pipe）——数据数据要么通过最近的基站（连接到互联网）传输，要么经过卫星和地面站的多次转发，导致跨洲通信延迟显著增加。Starlink 已发射具备 ISL 能力的卫星，但大规模运行细节尚未公开。
 
-### System Dynamics（系统动态性）
+### 系统动态性（System Dynamics）
 
 LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度为例，卫星速度高达 27,306 km/h，约每 100 分钟绕地球一圈。这种高速导致：
 - 地星链路仅能维持几分钟，需频繁切换；
@@ -174,7 +217,7 @@ LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度�
 
 这种动态性虽带来挑战，却具有高度可预测性（基于开普勒轨道力学），与地面移动网络（如蜂窝网）中用户随机移动有本质不同。更重要的是，LEO 网络的移动主体是网络核心本身——卫星即路由器，而非仅终端移动。此外，其规模远超传统移动系统：数千颗具备 Tbps 级交换能力的“飞行节点”在全球尺度上协同工作。这些特性使得 LEO 网络既不能直接套用现有协议，也为基于轨道预测的预计算路由、动态拓扑优化等新方法提供了独特机会。
 
-### Impact of Interference（干扰影响）
+### 干扰影响（Impact of Interference）
 
 尽管 LEO 星座密度高、频谱复用频繁，但现行的主流星座已部署一整套在线、软件定义的干扰抑制机制，包括：
 - 低轨道高度缩小波束覆盖范围；
