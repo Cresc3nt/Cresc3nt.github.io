@@ -5,7 +5,7 @@ date: 2024-01-27 11:46:00
 description: 这是高级图片组件的样子
 tags: [格式化, 图片]
 categories: [示例文章]
-thumbnail: assets/img/9.jpg  # 文章缩略图
+thumbnail: assets/img/blogs/2024-01-27-advanced-images/9.jpg  # 文章缩略图
 images:  # 图片功能配置
   compare: true  # 启用图片对比功能
   slider: true   # 启用图片滑块功能

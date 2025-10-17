@@ -5,7 +5,7 @@ date: 2024-12-04 01:59:00
 description: 这是包含图片画廊的样子
 tags: [格式化, 图片]
 categories: [示例文章]
-thumbnail: assets/img/9.jpg  # 文章缩略图
+thumbnail: assets/img/blogs/2024-01-27-advanced-images/9.jpg  # 文章缩略图
 images:  # 图片画廊功能配置
   lightbox2: true    # 启用Lightbox2
   photoswipe: true   # 启用PhotoSwipe
