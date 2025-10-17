@@ -323,21 +323,49 @@ bin/up
 
 首先访问 `http://<your-server-ip-or-domain>:<your-port>/launchpad` 创建管理员，之后便可以访问 `http://<your-server-ip-or-domain>:<your-port>/login` 登录用户。
 
-![登录界面](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/login.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/login.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    登录界面
+</div>
 
 ## 添加账户
 
 在管理员账户主页，点击 `admin - Manage Users` 即可添加账户。
 
-![管理员添加账户](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/add-users.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/add-users.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    管理员添加账户
+</div>
 
 在输入要添加账户的邮箱后，会为新账户生成一个设置密码链接，访问该链接设置密码即可完成新账户的注册。
 
-![设置密码链接](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/register.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/register.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    设置密码链接
+</div>
 
 接下来，就可以愉快地使用 overleaf 啦。
 
-![使用示例](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/example.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/example.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    使用示例
+</div>
 
 ## VS Code/Cursor + Overleaf
 
@@ -345,25 +373,67 @@ bin/up
 
 安装成功后，可以在左侧导航栏看到 Overleaf 的 logo。
 
-![Overleaf 插件](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/overleaf-plungin.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/overleaf-plungin.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Overleaf 插件
+</div>
 
 点击图中所示的加号，将部署的 Overleaf 服务器地址 `http://<your-server-ip-or-domain>:<your-port>` 填进框中。
 
-![输入 Overleaf 服务器地址](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/input-url.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/input-url.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    输入 Overleaf 服务器地址
+</div>
 
 在左侧可以进行登录。
 
-![登录账户](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/sign-in.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/sign-in.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    登录账户
+</div>
 
 点击 `Login with Password`，根据提示输入账号密码。
 
-![输入账号密码](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/input-password.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/input-password.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    输入账号密码
+</div>
 
 点击图中的按钮，便可以使用 VS Code 编辑 LaTeX 项目了。
 
-![打开项目](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/open-project.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/open-project.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    打开项目
+</div>
 
-![编辑项目](https://cresc3nt.github.io/assets/img/blogs/overleaf-server/edit-project.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/blogs/2025-09-12-overleaf-server/edit-project.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    编辑项目
+</div>
 
 在 Cursor 中，我并没有在插件市场搜索到 Overleaf Workshop 插件，这时可以通过手动安装 VSIX 文件的方式来解决这个问题。
 

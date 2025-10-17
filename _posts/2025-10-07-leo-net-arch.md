@@ -36,7 +36,7 @@ toc:  # 目录配置
 
 下图展示了5条极地轨道与五条非极地轨道。
 
-![polar and inclined orbits](https://cresc3nt.github.io/assets/img/blogs/leo-net-arch/polar-and-inclined-orbits.png)
+![polar and inclined orbits](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/polar-and-inclined-orbits.png)
 
 
 
@@ -66,7 +66,7 @@ toc:  # 目录配置
   - Starlink初期用 $e$ = 25°，后期提升至 40°。
   - Telesat计划用 $e$ = 10°（但可行性存疑）。
 
-![radius-of-coverage](https://cresc3nt.github.io/assets/img/blogs/leo-net-arch/radius-of-coverage.png)
+![radius-of-coverage](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/radius-of-coverage.png)
 
 ### 1.4 相位偏移 (Phase Offset, $p$ or $\varphi$)
 
@@ -97,7 +97,7 @@ toc:  # 目录配置
 | Inclination (轨道倾角) | *i* | 壳层中所有轨道共用的倾角 |
 | Height (轨道高度) | *h* | 壳层中所有卫星的运行高度 |
 
-可以参考[示例1](https://cresc3nt.github.io/assets/html/blogs/leo-net-arch/leo_shell_example1.html)与[示例2](https://cresc3nt.github.io/assets/html/blogs/leo-net-arch/leo_shell_example2.html)，它们分别描述了4条轨道与32条轨道时的壳层样例。
+可以参考[示例1](https://cresc3nt.github.io/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example1.html)与[示例2](https://cresc3nt.github.io/assets/html/blogs/2025-10-07-leo-net-arch/leo_shell_example2.html)，它们分别描述了4条轨道与32条轨道时的壳层样例。
 
 > 💡 许多研究中使用 $o^2$ 来表示星座的大小，代表有 $o$ 条轨道，同时每条轨道上有 $n = o$ 颗卫星。这种对称设计便于仿真中控制变量，同时能直观反映星座密度对延迟和连通性的影响。
 {: .block-tip }
@@ -111,14 +111,14 @@ GSL 使用射频而非激光，因其对云层和降水更具鲁棒性。每颗�
 > 💡 卫星的星下点（nadir）是指从卫星向地心方向作一条直线，该直线与地球表面相交的点，也就是卫星正下方的地表位置。在轨道力学和卫星通信中，星下点具有特殊意义：此时地面站与卫星之间的距离最短，信号路径损耗最小，通信质量最好。例如，在计算地星链路（GSL）带宽时，只有当用户终端恰好位于卫星的星下点、且该卫星波束覆盖范围内没有其他用户共享资源时，才能获得该链路的最大可用带宽。随着地面站偏离星下点，星地距离增加，路径损耗增大，可用带宽随之下降，通常建模为与 $h^2/d_s^2$ 成正比（其中 $h$ 为轨道高度，$d_s$为实际星地距离）。因此，星下点是评估卫星覆盖性能和链路质量的关键参考位置。
 {: .block-tip }
 
-![GSL](https://cresc3nt.github.io/assets/img/blogs/leo-net-arch/GSL.png)
+![GSL](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/GSL.png)
 
 相比之下，ISL 是实现低延迟端到端通信的关键。当前行业普遍采用 “+Grid” 拓扑：每颗卫星通过激光链路连接 4 个邻居——同轨道前后各 1 颗，相邻轨道各 1 颗。这种结构在卫星相对速度较低时可维持长期稳定连接，避免频繁切换。ISL 使用激光，因其波束极窄、发散小、干扰低。但其长度受物理限制：激光不能进入 80 km 以下大气层（中层大气含水汽，会散射光束），因此给定轨道高度 $h_ S$ ，可计算最大 ISL 距离。例如，Starlink S1（$h$=550 km）的最大 ISL 长度约为 5,014 km。在稀疏星座中，ISL 仅限相邻轨道；但在密集星座中，一颗卫星理论上可连接上百颗其他卫星。然而，实际部署仍受限于：
 - 功耗约束：更长距离需更高发射功率；
 - 设备重量与成本：大功率激光终端更重、更贵；
 - 热管理与指向精度：高速运动下维持激光对准极具挑战。
 
-![ISL](https://cresc3nt.github.io/assets/img/blogs/leo-net-arch/ISL.png)
+![ISL](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/ISL.png)
 
 因此，尽管物理可见性允许更多连接，工程现实仍使 +Grid 成为主流选择。值得注意的是，若无 ISL，星座只能采用“弯管模式”（bent-pipe）——数据数据要么通过最近的基站（连接到互联网）传输，要么经过卫星和地面站的多次转发，导致跨洲通信延迟显著增加。Starlink 已发射具备 ISL 能力的卫星，但大规模运行细节尚未公开。
 
@@ -148,7 +148,7 @@ LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度�
 
 低轨（LEO）卫星星座不仅是一种全球覆盖的通信基础设施，更代表了一种突破现有地面光纤网络延迟瓶颈的新范式。当前互联网的高延迟部分源于光纤路径的物理限制：光在光纤中传播速度仅为真空中光速 $c$ 的约 2/3 ，且实际铺设路径受地形与经济因素制约，往往严重绕行。即便假设使用所有已知光纤并沿最短路径传输（即“f-latency”），其延迟仍显著高于理论极限（“c-latency”，即光在真空中沿大圆传播所需时间）。LEO 星座则通过近真空环境中的射频与激光链路，以接近光速 $c$ 直线传输数据，在长距离通信中展现出显著优势。仿真表明，一个中等规模的 LEO 星座（如 30²，即 900 颗卫星）在华盛顿特区至法兰克福的路径上，其端到端延迟几乎总是优于最优光纤（32.6 ms）；而更密集的星座（如 40²、50²）甚至能匹配或超越高频交易（HFT），逼近 c-latency（21.7 ms）。
 
-![华盛顿-法兰克福端到端通信延迟](https://cresc3nt.github.io/assets/img/blogs/leo-net-arch/latency-example.png)
+![华盛顿-法兰克福端到端通信延迟](https://cresc3nt.github.io/assets/img/blogs/2025-10-07-leo-net-arch/latency-example.png)
 
 > 📊 这张图展示了不同星座大小下华盛顿特区与法兰克福之间的延迟。CDF 曲线越靠左、越陡峭，说明该网络的延迟表现越好、越稳定。<br>
 > 纵轴（CDF）：累积分布函数，这里表示延迟小于或等于横轴值的概率。例如，如果某条曲线在横轴 35 ms 处对应的 CDF 值是 0.8，那就意味着，在这个星座配置下，有 80% 的时间，端到端延迟都小于或等于 35 毫秒。<br>
