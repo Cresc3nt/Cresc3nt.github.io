@@ -9,15 +9,26 @@ tags:
 categories:
   - 科研
 
-toc:                                             # 目录配置
-  sidebar: left                                  # 在左侧显示侧边栏目录 
+toc:
+  - name: 低轨卫星参数
+    subsections:
+      - name: 轨道倾角 (Inclination, $i$)
+      - name: 轨道高度 (Height, $h$)
+      - name: 最小仰角 (Minimum Elevation Angle, $e$)
+      - name: 相位偏移 (Phase Offset, $p$ or $\varphi$)
+  - name: 低轨卫星星座
+    subsections:
+      - name: 星座连接性 (Constellation Connectivity)
+      - name: 系统动态性 (System Dynamics)
+      - name: 干扰影响 (Impact of Interference)
+  - name: 低轨卫星的低延迟优势与应用价值
 
 bibliography: blogs/2025-10-07-leo-net-arch.bib  # 启用参考文献
 
 pretty_table: true                               # 启用美化表格功能（通常用于加载 Bootstrap Table 等表格样式或脚本）
 ---
 
-<h2 class="section">低轨卫星参数</h2>
+## 低轨卫星参数
 
 所有现代低轨宽带星座均采用**圆形轨道**，以确保全球服务的一致性和简化轨道管理。
 
@@ -59,7 +70,7 @@ pretty_table: true                               # 启用美化表格功能（�
   </tbody>
 </table>
 
-<h3 class="section">轨道倾角 (Inclination, $i$)</h3>
+### 轨道倾角 (Inclination, $i$)
 
 - 定义：卫星轨道平面与地球赤道平面之间的夹角（卫星从南向北穿越赤道时测量）。
 - 典型值：
@@ -81,7 +92,7 @@ pretty_table: true                               # 启用美化表格功能（�
     polar and inclined orbits
 </div>
 
-<h3 class="section">轨道高度 (Height, $h$)</h3>
+### 轨道高度 (Height, $h$)
 
 - 定义：卫星距地球表面的高度。
 
@@ -93,7 +104,7 @@ pretty_table: true                               # 启用美化表格功能（�
     - 辐射环境：较低轨道可避开范艾伦辐射带，减少辐射损伤。
     - 监管：受FCC（美国）和ITU（国际）监管。
 
-<h3 class="section">最小仰角 (Minimum Elevation Angle, $e$)</h3>
+### 最小仰角 (Minimum Elevation Angle, $e$)
 
 - 定义：地面站能与卫星通信所需的最低仰角（相对于地平线）。
 
@@ -116,7 +127,7 @@ pretty_table: true                               # 启用美化表格功能（�
     radius-of-coverage
 </div>
 
-<h3 class="section">相位偏移 (Phase Offset, $p$ or $\varphi$)</h3>
+### 相位偏移 (Phase Offset, $p$ or $\varphi$)
 
 - 描述相邻轨道上卫星的相对位置，需要设置合理的参数以避免碰撞。在一些研究中，也会用相位因子 $F$ 来表示，其实际含义与相位偏移相同。
 
@@ -132,7 +143,7 @@ pretty_table: true                               # 启用美化表格功能（�
 > 💡 除此之外，一个卫星轨道还应该包含七个要素：包括一个历元和六个开普勒要素，但在低轨卫星网络的研究中所有的轨道均为圆形轨道，所以无需特别关注其他参数。
 {: .block-tip }
 
-<h2 class="section">低轨卫星星座</h2>
+## 低轨卫星星座
 
 如果每颗卫星轨道参数（高度、倾角等）都不同，它们之间的相对运动将非常复杂。这种状态下星间链路（ISL）只能短暂维持，频繁切换（handoff）会导致连接中断、延迟飙升（切换可能耗时数十秒）。因此需要将卫星分组为壳层——每个壳层内所有卫星共享相同的轨道高度与轨道倾角。
 
@@ -177,7 +188,7 @@ pretty_table: true                               # 启用美化表格功能（�
 > 💡 许多研究中使用 $o^2$ 来表示星座的大小，代表有 $o$ 条轨道，同时每条轨道上有 $n = o$ 颗卫星。这种对称设计便于仿真中控制变量，同时能直观反映星座密度对延迟和连通性的影响。
 {: .block-tip }
 
-<h3 class="section">星座连接性 (Constellation Connectivity)</h3>
+### 星座连接性 (Constellation Connectivity)
 
 现代低轨卫星星座的连接性建立在两类链路之上：地星链路（Ground-Satellite Links, GSL）与星间链路（Inter-Satellite Links, ISL）。
 
@@ -211,7 +222,7 @@ GSL 使用射频而非激光，因其对云层和降水更具鲁棒性。每颗�
 
 因此，尽管物理可见性允许更多连接，工程现实仍使 +Grid 成为主流选择。值得注意的是，若无 ISL，星座只能采用“弯管模式”（bent-pipe）——数据数据要么通过最近的基站（连接到互联网）传输，要么经过卫星和地面站的多次转发，导致跨洲通信延迟显著增加。Starlink 已发射具备 ISL 能力的卫星，但大规模运行细节尚未公开。
 
-<h3 class="section">系统动态性 (System Dynamics)</h3>
+### 系统动态性 (System Dynamics)
 
 LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度为例，卫星速度高达 27,306 km/h，约每 100 分钟绕地球一圈。这种高速导致：
 - 地星链路仅能维持几分钟，需频繁切换；
@@ -220,7 +231,7 @@ LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度�
 
 这种动态性虽带来挑战，却具有高度可预测性（基于开普勒轨道力学），与地面移动网络（如蜂窝网）中用户随机移动有本质不同。更重要的是，LEO 网络的移动主体是网络核心本身——卫星即路由器，而非仅终端移动。此外，其规模远超传统移动系统：数千颗具备 Tbps 级交换能力的“飞行节点”在全球尺度上协同工作。这些特性使得 LEO 网络既不能直接套用现有协议，也为基于轨道预测的预计算路由、动态拓扑优化等新方法提供了独特机会。
 
-<h3 class="section">干扰影响 (Impact of Interference)</h3>
+### 干扰影响 (Impact of Interference)
 
 尽管 LEO 星座密度高、频谱复用频繁，但现行的主流星座已部署一整套在线、软件定义的干扰抑制机制，包括：
 - 低轨道高度缩小波束覆盖范围；
@@ -233,7 +244,7 @@ LEO 星座的高速运动带来了显著的系统动态性。以 550 km 高度�
 
 鉴于这些成熟且可调的缓解手段，现有的研究聚焦于拓扑结构、动态路由与端到端延迟等核心网络问题。
 
-<h2 class="section">低轨卫星的低延迟优势与应用价值</h2>
+## 低轨卫星的低延迟优势与应用价值
 
 低轨（LEO）卫星星座不仅是一种全球覆盖的通信基础设施，更代表了一种突破现有地面光纤网络延迟瓶颈的新范式。当前互联网的高延迟部分源于光纤路径的物理限制：光在光纤中传播速度仅为真空中光速 $c$ 的约 2/3 ，且实际铺设路径受地形与经济因素制约，往往严重绕行。即便假设使用所有已知光纤并沿最短路径传输（即“f-latency”），其延迟仍显著高于理论极限（“c-latency”，即光在真空中沿大圆传播所需时间）。LEO 星座则通过近真空环境中的射频与激光链路，以接近光速 $c$ 直线传输数据，在长距离通信中展现出显著优势。仿真表明，一个中等规模的 LEO 星座（如 30²，即 900 颗卫星）在华盛顿特区至法兰克福的路径上，其端到端延迟几乎总是优于最优光纤（32.6 ms）；而更密集的星座（如 40²、50²）甚至能匹配或超越高频交易（HFT），逼近 c-latency（21.7 ms）。
 
