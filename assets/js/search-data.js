@@ -45,7 +45,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/2025-10-19-test/";
+            window.location.href = "/blog/2025/2025-10-19-test2/";
           
         },
       },{id: "post-",
