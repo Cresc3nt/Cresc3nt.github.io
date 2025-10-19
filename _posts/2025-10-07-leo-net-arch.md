@@ -23,6 +23,8 @@ toc:
       - name: 干扰影响 (Impact of Interference)
   - name: 低轨卫星的低延迟优势与应用价值
 
+featured: true                                   # 将文章置顶
+
 bibliography: blogs/2025-10-07-leo-net-arch.bib  # 启用参考文献
 
 pretty_table: true                               # 启用美化表格功能（通常用于加载 Bootstrap Table 等表格样式或脚本）
