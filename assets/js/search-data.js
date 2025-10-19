@@ -45,18 +45,18 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/2025-10-19-test2/";
+            window.location.href = "/blog/2025/2025-10-19-sigcomm25/";
           
         },
-      },{id: "post-",
+      },{id: "post-test-39-blog",
         
-          title: "",
+          title: "test&#39; blog",
         
-        description: "",
+        description: "本文整理了 2025 年 SIGCOMM 主会议中与低轨卫星网络相关的论文。",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/2025-10-19-sigcomm25/";
+            window.location.href = "/blog/2025/test2/";
           
         },
       },{id: "post-低轨卫星网络架构",
