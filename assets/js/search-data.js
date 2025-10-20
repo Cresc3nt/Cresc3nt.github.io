@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-sigcomm-39-25-低轨卫星网络论文簇",
+        },{id: "post-低轨卫星网络硬件相关论文簇",
+        
+          title: "低轨卫星网络硬件相关论文簇",
+        
+        description: "本文整理了截至 2025 年，在低轨卫星网络硬件层面的相关论文。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/leo-hardware/";
+          
+        },
+      },{id: "post-sigcomm-39-25-低轨卫星网络论文簇",
         
           title: "SIGCOMM&#39; 25 低轨卫星网络论文簇",
         
