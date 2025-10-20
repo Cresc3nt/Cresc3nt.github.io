@@ -37,18 +37,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-",
-        
-          title: "",
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/2025-10-19-test2/";
-          
-        },
-      },{id: "post-sigcomm-39-25-低轨卫星网络论文簇",
+        },{id: "post-sigcomm-39-25-低轨卫星网络论文簇",
         
           title: "SIGCOMM&#39; 25 低轨卫星网络论文簇",
         
