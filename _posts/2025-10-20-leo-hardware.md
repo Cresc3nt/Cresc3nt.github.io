@@ -10,32 +10,35 @@ tags:
 categories:
   - 科研
 
-toc:
-  - name: "Hummingbird: Energy Efficient GPS Receiver for Small Satellites"
-    subsections:
-      - name: "摘要"
-      - name: "介绍"
-      - name: "$F^3$ 算法简介"
-      - name: "总结"
-  - name: "Towards Dual-band Reconfigurable Metasurfaces for Satellite Networking"
-    subsections:
-      - name: "摘要"
-      - name: "介绍"
-      - name: "总结"
-  - name: "PMSat: Optimizing Passive Metasurface for Low Earth Orbit Satellite Communication"
-    subsections:
-      - name: "摘要"
-      - name: "介绍"
-      - name: "总结"
-  - name: "From Foe to Friend: The Surprising Turn of MegaConstellations in Radio Astronomy"
-    subsections:
-      - name: "摘要"
-      - name: "介绍"
-      - name: "总结"
+# toc:
+#   - name: "Hummingbird: Energy Efficient GPS Receiver for Small Satellites"
+#     subsections:
+#       - name: "摘要"
+#       - name: "介绍"
+#       - name: "$F^3$ 算法简介"
+#       - name: "总结"
+#   - name: "Towards Dual-band Reconfigurable Metasurfaces for Satellite Networking"
+#     subsections:
+#       - name: "摘要"
+#       - name: "介绍"
+#       - name: "总结"
+#   - name: "PMSat: Optimizing Passive Metasurface for Low Earth Orbit Satellite Communication"
+#     subsections:
+#       - name: "摘要"
+#       - name: "介绍"
+#       - name: "总结"
+#   - name: "From Foe to Friend: The Surprising Turn of MegaConstellations in Radio Astronomy"
+#     subsections:
+#       - name: "摘要"
+#       - name: "介绍"
+#       - name: "总结"
 
 bibliography: blogs/2025-10-20-leo-hardware.bib     # 启用参考文献
 
 pretty_table: true                                  # 启用美化表格功能（通常用于加载 Bootstrap Table 等表格样式或脚本）
+
+toc:  # 目录配置
+  beginning: true  # 在文章开头显示目录
 ---
 
 ## Hummingbird: Energy Efficient GPS Receiver for Small Satellites
