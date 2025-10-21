@@ -36,9 +36,6 @@ toc:
 bibliography: blogs/2025-10-20-leo-hardware.bib     # 启用参考文献
 
 pretty_table: true                                  # 启用美化表格功能（通常用于加载 Bootstrap Table 等表格样式或脚本）
-
-toc:  # 目录配置
-  beginning: true  # 在文章开头显示目录
 ---
 
 ## Hummingbird: Energy Efficient GPS Receiver for Small Satellites
