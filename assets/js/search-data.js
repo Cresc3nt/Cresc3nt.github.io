@@ -37,11 +37,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-低轨卫星网络硬件相关论文簇",
+        },{id: "post-低轨卫星网络硬件-amp-物理层相关论文簇",
         
-          title: "低轨卫星网络硬件相关论文簇",
+          title: "低轨卫星网络硬件 &amp; 物理层相关论文簇",
         
-        description: "本文整理了截至 2025 年，在低轨卫星网络硬件层面的代表性论文。",
+        description: "本文整理了截至 2025 年，在低轨卫星网络硬件层面与物理层的代表性论文。",
         section: "Posts",
         handler: () => {
           
