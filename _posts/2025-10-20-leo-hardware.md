@@ -6,9 +6,9 @@ description: 本文整理了截至 2025 年，在低轨卫星网络硬件层面�
 tags:
   - 低轨卫星网络
   - 硬件
+  - 物理层
 categories:
   - 科研
-
 
 toc:
   - name: "Hummingbird: Energy Efficient GPS Receiver for Small Satellites"
@@ -23,6 +23,11 @@ toc:
       - name: "介绍"
       - name: "总结"
   - name: "PMSat: Optimizing Passive Metasurface for Low Earth Orbit Satellite Communication"
+    subsections:
+      - name: "摘要"
+      - name: "介绍"
+      - name: "总结"
+  - name: "From Foe to Friend: The Surprising Turn of MegaConstellations in Radio Astronomy"
     subsections:
       - name: "摘要"
       - name: "介绍"
