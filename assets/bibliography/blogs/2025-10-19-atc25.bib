@@ -1,0 +1,47 @@
+@inproceedings{10.5555/3768039.3768087,
+author = {Wang, Liying and Li, Qing and Zhou, Yuhan and Luo, Zhaofeng and Zhang, Donghao and Wang, Shangguang and Liu, Xuanzhe and Xu, Chenren},
+title = {Emulating space computing networks with RHONE},
+year = {2025},
+isbn = {978-1-939133-48-9},
+publisher = {USENIX Association},
+address = {USA},
+url = {https://www.usenix.org/conference/atc25/presentation/wang-liying},
+abstract = {The rapid advancement in satellite technology with the adoption of commercial off-the-shelf (COTS) devices and satellite constellation networking has given rise to Space Computing Networks (SCNs). While SCN research is typically conducted on experimental platforms due to high operational costs, the unique challenges of SCNs - such as the harsh space environment (e.g., power and thermal constraints) and dynamic constellation networks - require special consideration. Existing platforms cannot fully replicate the SCN operating environment with high scalability. This paper introduces RHONE, an emulator that bridges these gaps by achieving both satellite- and constellation-level fidelity (the accurate replication of satellite and constellation states, including power, thermal, and network conditions, as well as application performance characteristics) while ensuring usability. RHONE adopts a two-phase emulation approach: i) an offline phase builds power, thermal, orbit, network, and computation models using real satellite telemetry data and hardware-in-the-loop chip mirroring, and ii) an online phase executes container-based emulation integrated with these models. Key components, the satellite COTS aligner and the satellite network aligner, dynamically align the containers with real satellite conditions. Evaluation shows RHONE 's scalability to 700 satellites on a single node, with power and computation model errors under 5\% and thermal model errors within 1.3 - 2.5°C. Two case studies - satellite network energy drain attack and real-time earth observation application - demonstrate RHONE's capability to emulate satellite- and constellation-level dynamics.},
+booktitle = {Proceedings of the 2025 USENIX Conference on Usenix Annual Technical Conference},
+articleno = {48},
+numpages = {17},
+location = {Boston, MA, USA},
+series = {USENIX ATC '25}
+}
+
+@inproceedings{10.5555/3768039.3768118,
+author = {Liu, Jiacheng and Zhu, Xiaozhi and Xu, Tongqiao and Hou, Xiaofeng and Li, Chao},
+title = {SpaceExit: enabling efficient adaptive computing in space with early exits},
+year = {2025},
+isbn = {978-1-939133-48-9},
+publisher = {USENIX Association},
+address = {USA},
+url = {https://www.usenix.org/conference/atc25/presentation/liu-jiacheng},
+abstract = {Advances in satellite technology and reduced launch costs have led to a proliferation of Earth observation (EO) satellites in low-Earth orbit (LEO). These satellites generate massive high-resolution imagery, creating a significant downlink bottleneck due to limited satellite-to-ground communication bandwidth. While orbit edge computing (OEC) can reduce data volume, existing static approaches fail to adapt to the varying complexity of satellite imagery, resulting in limited system performance and inefficient resource utilization.We therefore propose SpaceExit, an integrated system for efficient adaptive computing on satellites. SpaceExit introduces three key components: (1) a geospatial-contextual adaptive detector that leverages both visual semantics and geospatial context to adjust processing complexity for each image, (2) a complexity-driven adaptive task scheduler that partitions images into tiles and allocates inference tasks across onboard devices based on content complexity and device capabilities, and (3) a satellite resource adaptive controller that ensures safe and efficient execution under changing conditions. Evaluations of diverse satellite settings and hardware platforms demonstrate that SpaceExit increases the performance by 5.2\%-37.6\% compared with the SoTA design.},
+booktitle = {Proceedings of the 2025 USENIX Conference on Usenix Annual Technical Conference},
+articleno = {79},
+numpages = {16},
+location = {Boston, MA, USA},
+series = {USENIX ATC '25}
+}
+
+@inproceedings{10.5555/3768039.3768086,
+author = {Basak, Suvam and Pal, Amitangshu and Bhattacherjee, Debopam},
+title = {LEOCraft: towards designing performant LEO networks},
+year = {2025},
+isbn = {978-1-939133-48-9},
+publisher = {USENIX Association},
+address = {USA},
+url = {https://www.usenix.org/conference/atc25/presentation/basak},
+abstract = {Low Earth Orbit (LEO) satellite constellations have revolutionized Internet access for millions of users. OneWeb and SpaceX are already operating constellations of hundreds and thousands of satellites, offering Internet service directly from space across 100+ countries. These exceptionally large networks come at a cost - thousands of routers (satellites) need to fly at ∼22\texttimes{} the speed of sound, thus making network design a non-trivial challenge. While the systems research community with decades of deep networking expertise has a relatively short window to influence the design of these networks, there is a serious lack of the right tools to enable such efforts. To address this, we introduce LEOCraft - an LEO network design framework to help the community visualize and evaluate the performance of different choices. LEOCraft offers integrated optimization techniques tuned upon the domain knowledge acquired from thousands of LEO constellation design's performance evaluations to optimize a new constellation design ∼5\texttimes{} faster than other off-the-shelf black-box optimization techniques. LEOCraft scales up seamlessly, tested for 83K satellites across multiple shells (more than 2\texttimes{} SpaceX's longterm proposal) with 1K ground stations, thus making it feasible for the community to explore LEO trajectory and topology design for even the largest of mega-constellations.},
+booktitle = {Proceedings of the 2025 USENIX Conference on Usenix Annual Technical Conference},
+articleno = {47},
+numpages = {25},
+location = {Boston, MA, USA},
+series = {USENIX ATC '25}
+}

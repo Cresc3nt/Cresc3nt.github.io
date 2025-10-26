@@ -59,6 +59,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/leo-hardware/";
           
         },
+      },{id: "post-usenix-atc-39-25-低轨卫星网络论文簇",
+        
+          title: "USENIX ATC&#39; 25 低轨卫星网络论文簇",
+        
+        description: "本文整理了 2025 年 USENIX ATC 主会议中与低轨卫星网络相关的论文。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/atc25/";
+          
+        },
       },{id: "post-sigcomm-39-25-低轨卫星网络论文簇",
         
           title: "SIGCOMM&#39; 25 低轨卫星网络论文簇",
