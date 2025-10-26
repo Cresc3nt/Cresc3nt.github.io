@@ -40,7 +40,7 @@ pretty_table: true                                  # 启用美化表格功能�
 
 ## Hummingbird: Energy Efficient GPS Receiver for Small Satellites
 
-**Hummingbird：面向小型卫星的高能效 GPS 接收机<d-cite key="930e04c3acdb425c989aa6e85bd87710"></d-cite>**
+**Hummingbird：面向小型卫星的高能效 GPS 接收机<d-cite key="930e04c3acdb425c989aa6e85bd87710"></d-cite> (MobiCom 2020)**
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -143,7 +143,7 @@ Hummingbird 无需额外硬件（如多天线）或地面站支持，完全依�
 
 ## Towards Dual-band Reconfigurable Metasurfaces for Satellite Networking
 
-**面向卫星组网的双频可重构超表面研究<d-cite key="10.1145/3563766.3564086"></d-cite>**
+**面向卫星组网的双频可重构超表面研究<d-cite key="10.1145/3563766.3564086"></d-cite> (HotNets 2022)**
 
 ### 2-1 摘要
 
@@ -216,7 +216,7 @@ $K_u$ 频段（10.7–18 GHz）是此类 LEO 卫星网络的自然选择：其�
 
 ## PMSat: Optimizing Passive Metasurface for Low Earth Orbit Satellite Communication
 
-**PMSat：面向低轨卫星通信的无源超表面优化<d-cite key="10.1145/3570361.3613257"></d-cite>**
+**PMSat：面向低轨卫星通信的无源超表面优化<d-cite key="10.1145/3570361.3613257"></d-cite> (MobiCom 2023)**
 
 ### 3-1 摘要
 
@@ -263,7 +263,7 @@ LEO网络通常采用毫米波（mmWave）频段以实现高吞吐量，因此�
 
 ## From Foe to Friend: The Surprising Turn of MegaConstellations in Radio Astronomy
 
-**化敌为友：巨型星座在射电天文学中的意外转机<d-cite key="10.1145/3696348.3696863"></d-cite>**
+**化敌为友：巨型星座在射电天文学中的意外转机<d-cite key="10.1145/3696348.3696863"></d-cite> (HotNets 2024)**
 
 ### 4-1 摘要
 
