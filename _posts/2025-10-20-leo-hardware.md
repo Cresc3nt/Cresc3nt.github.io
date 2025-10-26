@@ -48,7 +48,7 @@ pretty_table: true                                  # 启用美化表格功能�
     </div>
 </div>
 <div class="caption">
-    GPS receiver
+    低轨卫星上的 GPS 接收机
 </div>
 
 ### 1-1 摘要
