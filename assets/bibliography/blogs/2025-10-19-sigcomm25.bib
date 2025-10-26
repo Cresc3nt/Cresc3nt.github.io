@@ -69,3 +69,39 @@ keywords = {satellite networking, low earth orbit (LEO) satellite constellation}
 location = {S\~{a}o Francisco Convent, Coimbra, Portugal},
 series = {SIGCOMM '25}
 }
+
+@inproceedings{10.1145/3718958.3750523,
+author = {Sun, Chuanhao and Zhang, Yu and Tao, Bill and Vasisht, Deepak and Marina, Mahesh},
+title = {DeepSpace: Super Resolution Powered Efficient and Reliable Satellite Image Data Acquistion},
+year = {2025},
+isbn = {9798400715242},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3718958.3750523},
+doi = {10.1145/3718958.3750523},
+abstract = {Large constellations of low-earth orbit satellites enable frequent high-resolution earth imaging for numerous geospatial applications. They generate large volumes of data in space, hundreds of Terabytes per day, which much be transported to Earth through constrained intermittent connections to ground stations. The large volumes lead to large day-level delay in data download and exorbitant cloud storage costs. We propose DeepSpace, a new deep learning-based super-resolution approach that compresses satellite imagery by over two orders of magnitude, while preserving image quality using a tailored mixture of experts (MoE) super-resolution framework. DeepSpace reduces the network bandwidth requirements for space-Earth transfer, and can compress images for cloud storage. DeepSpace achieves such gains with the limited computational power available on small LEO satellites. We extensively evaluate DeepSpace against a wide range of state-of-the-art baselines considering multiple satellite image datasets and demonstrate the above mentioned benefits. We further demonstrate the effectiveness of DeepSpace through several distinct downstream applications (wildfire detection, land use and cropland classification, and fine-grained plastic detection in oceans).},
+booktitle = {Proceedings of the ACM SIGCOMM 2025 Conference},
+pages = {311–328},
+numpages = {18},
+keywords = {LEO satellites, earth observation, generative AI},
+location = {S\~{a}o Francisco Convent, Coimbra, Portugal},
+series = {SIGCOMM '25}
+}
+
+@inproceedings{10.1145/3718958.3750491,
+author = {Lai, Zeqi and Li, Zonglun and Wu, Qian and Li, Hewu and Li, Jihao and Xie, Xin and Li, Yuanjie and Liu, Jun and Wu, Jianping},
+title = {LeoCC: Making Internet Congestion Control Robust to LEO Satellite Dynamics},
+year = {2025},
+isbn = {9798400715242},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3718958.3750491},
+doi = {10.1145/3718958.3750491},
+abstract = {The recent renaissance of low Earth orbit (LEO) satellite networks expands the boundaries of global Internet access, but also introduces substantial new challenges for existing end-to-end congestion control algorithms (CCAs). The rapid and continuous movement of LEO satellites leads to infrastructure-level dynamics, resulting in frequent, LEO-dynamics-induced changes in link capacity, delay, and packet loss rate, which can further mislead the rate control in existing CCAs and cause self-limited performance.This paper presents LeoCC, a novel CCA that addresses the above challenges and is robust to LEO satellite dynamics. The core idea behind LeoCC lies in a critical characteristic of emerging LEO networks called "connection reconfiguration", which implicitly reflects satellite path changes and is strongly correlated to network variations. Specifically, LeoCC employs a suite of new techniques to: (i) efficiently detect reconfiguration on the endpoint; (ii) apply a reconfiguration-aware model to characterize and estimate network conditions accurately; and (iii) precisely regulate the sending rate. We implement LeoCC in Linux kernel and evaluate its performance through extensive experiments conducted in both real LEO networks and a controlled lab environment. The results show that LeoCC can achieve the best throughput-delay balance under various LEO network conditions as compared to other existing CCAs: it achieves 85~494\% higher throughput than Cubic, Copa, BBRv3, and accomplishes 44~56\% lower delay than BBRv1 and VIVACE.},
+booktitle = {Proceedings of the ACM SIGCOMM 2025 Conference},
+pages = {129–146},
+numpages = {18},
+keywords = {TCP, congestion control, low-earth orbit satellite network},
+location = {S\~{a}o Francisco Convent, Coimbra, Portugal},
+series = {SIGCOMM '25}
+}
