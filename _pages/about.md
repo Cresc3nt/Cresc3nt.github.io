@@ -45,7 +45,7 @@ My research interests broadly include intelligent IoT, LEO satellite networks, a
     B.Eng. in Internet of Things Engineering, 2021–2025
   </div>
   <div style="text-align: right;">
-    <img src="https://cresc3nt.github.io/assets/img/nuaa-logo.png" width="60" alt="NUAA Logo" />
+    <img src="assets/img/nuaa-logo.png" width="60" alt="NUAA Logo" />
   </div>
 </div>
 
@@ -57,6 +57,6 @@ My research interests broadly include intelligent IoT, LEO satellite networks, a
     Research Assistant at SIGIoX Lab, 2025–2026(expected)
   </div>
   <div style="text-align: right;">
-    <img src="https://cresc3nt.github.io/assets/img/nuaa-logo.png" width="60" alt="NUAA Logo" />
+    <img src="assets/img/nuaa-logo.png" width="60" alt="NUAA Logo" />
   </div>
 </div>
