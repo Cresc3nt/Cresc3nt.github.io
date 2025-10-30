@@ -51,7 +51,7 @@ My research interests broadly include intelligent IoT, LEO satellite networks, a
 
 # 🔬 Research Experience
 
-<div style="width: 614px; margin-left: auto; margin-right: 0;">
+<div style="width: 614px;">
 
   <div style="display: flex; align-items: center; justify-content: space-between;">
     <div style="text-align: left;">
