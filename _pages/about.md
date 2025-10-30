@@ -51,12 +51,16 @@ My research interests broadly include intelligent IoT, LEO satellite networks, a
 
 # 🔬 Research Experience
 
-<div style="display: flex; align-items: center; justify-content: space-between;">
-  <div style="text-align: left;">
-    College of Computer Science and Technology, NUAA<br>
-    Research Assistant at SIGIoX Lab, 2025–2026(expected)
+<div style="width: 614px; margin-left: auto; margin-right: 0;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="text-align: left;">
+      College of Computer Science and Technology, NUAA<br>
+      Research Assistant at SIGIoX Lab, 2025–2026(expected)
+    </div>
+    <div style="text-align: right;">
+      <img src="assets/img/nuaa-logo.png" width="60" alt="NUAA Logo" />
+    </div>
   </div>
-  <div style="text-align: right;">
-    <img src="assets/img/nuaa-logo.png" width="60" alt="NUAA Logo" />
-  </div>
+
 </div>
