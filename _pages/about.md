@@ -31,7 +31,7 @@ latest_posts:
 
 <!-- I received my B.Eng. degree in Internet of Things Engineering in 2025 from <a href="https://cs.nuaa.edu.cn/">College of Computer Science and Technology</a>, <a href="https://nuaa.edu.cn/">Nanjing University of Aeronautics and Astronautics (NUAA)</a>, China, under the supervision of <a href="http://inet-nuaa.cn/kunzhu/">Prof. Kun Zhu</a>. I am currently serving as a Research Assistant in the SIGIoX Lab at NUAA working under the guidance of <a href="https://faculty.nuaa.edu.cn/xuzhuqing/zh_CN/index.htm">Dr. Zhuqing Xu</a> on research related to LEO satellite networks. My research interests include intelligent IoT, LEO satellite networks, and autonomous robot navigation. -->
 
-I received my Bachelor of Engineering (B.Eng.) degree in Internet of Things Engineering in 2025 from <a href="https://cs.nuaa.edu.cn/">the College of Computer Science and Technology</a>, <a href="https://nuaa.edu.cn/">Nanjing University of Aeronautics and Astronautics (NUAA)</a>, China, under the supervision of <a href="http://inet-nuaa.cn/kunzhu/">Prof. Kun Zhu</a>.
+I received my Bachelor of Engineering (B.Eng.) degree in Internet of Things Engineering in 2025 from the <a href="https://cs.nuaa.edu.cn/">College of Computer Science and Technology</a>, <a href="https://nuaa.edu.cn/">Nanjing University of Aeronautics and Astronautics (NUAA)</a>, China, under the supervision of <a href="http://inet-nuaa.cn/kunzhu/">Prof. Kun Zhu</a>.
 
 I am currently serving as a Research Assistant in the SIGIoX Lab at NUAA, working under the guidance of <a href="https://faculty.nuaa.edu.cn/xuzhuqing/zh_CN/index.htm">Dr. Zhuqing Xu</a>. My current research focuses on Low Earth Orbit (LEO) satellite networks.
 
