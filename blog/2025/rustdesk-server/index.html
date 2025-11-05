@@ -1,0 +1,117 @@
+<!DOCTYPE html> <html lang="zh"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 在云服务器上部署 RustDesk 自建服务器 | 🏠 Yuxuan(黄钰轩)'s Homepage </title> <meta name="author" content="Yuxuan Huang"> <meta name="description" content="RustDesk 作为一款开源、安全、跨平台的远程桌面软件，因其轻量、高效、无广告且支持自建服务器等特性，受到越来越多用户的青睐。自建 RustDesk 服务器不仅可以摆脱对官方服务器的依赖，还能完全掌控连接数据、提升连接速度与稳定性，尤其适合对隐私和性能有较高要求的个人或团队使用。"> <meta name="keywords" content="Cresc3nt, Yuxuan"> <meta property="og:site_name" content="🏠 Yuxuan(黄钰轩)'s Homepage"> <meta property="og:type" content="article"> <meta property="og:title" content="🏠 Yuxuan(黄钰轩)'s Homepage | 在云服务器上部署 RustDesk 自建服务器"> <meta property="og:url" content="https://Cresc3nt.github.io/blog/2025/rustdesk-server/"> <meta property="og:description" content="RustDesk 作为一款开源、安全、跨平台的远程桌面软件，因其轻量、高效、无广告且支持自建服务器等特性，受到越来越多用户的青睐。自建 RustDesk 服务器不仅可以摆脱对官方服务器的依赖，还能完全掌控连接数据、提升连接速度与稳定性，尤其适合对隐私和性能有较高要求的个人或团队使用。"> <meta property="og:image" content="avatar.jpg"> <meta property="og:locale" content="zh"> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="在云服务器上部署 RustDesk 自建服务器"> <meta name="twitter:description" content="RustDesk 作为一款开源、安全、跨平台的远程桌面软件，因其轻量、高效、无广告且支持自建服务器等特性，受到越来越多用户的青睐。自建 RustDesk 服务器不仅可以摆脱对官方服务器的依赖，还能完全掌控连接数据、提升连接速度与稳定性，尤其适合对隐私和性能有较高要求的个人或团队使用。"> <meta name="twitter:image" content="avatar.jpg"> <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Yuxuan Huang"
+        },
+        "url": "https://Cresc3nt.github.io/blog/2025/rustdesk-server/",
+        "@type": "BlogPosting",
+        "description": "RustDesk 作为一款开源、安全、跨平台的远程桌面软件，因其轻量、高效、无广告且支持自建服务器等特性，受到越来越多用户的青睐。自建 RustDesk 服务器不仅可以摆脱对官方服务器的依赖，还能完全掌控连接数据、提升连接速度与稳定性，尤其适合对隐私和性能有较高要求的个人或团队使用。",
+        "headline": "在云服务器上部署 RustDesk 自建服务器",
+        
+        "sameAs": ["https://github.com/Cresc3nt",null,"https://cresc3nt.github.io/"],
+        
+        "name": "Yuxuan Huang",
+        "@context": "https://schema.org"
+    }
+  </script> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link defer href="/assets/css/bootstrap-toc.min.css?6f5af0bb9aab25d79b2448143cbeaa88" rel="stylesheet"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8E%93&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://cresc3nt.github.io/blog/2025/rustdesk-server/"> <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> 🏠 Yuxuan(黄钰轩)'s Homepage </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">cv </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="row"> <div class="col-sm-3"> <nav id="toc-sidebar" class="sticky-top"></nav> </div> <div class="col-sm-9"> <div class="post"> <header class="post-header"> <h1 class="post-title">在云服务器上部署 RustDesk 自建服务器</h1> <p class="post-meta"> Created on October 02, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/rustdesk"> <i class="fa-solid fa-hashtag fa-sm"></i> RustDesk</a>   <a href="/blog/tag/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2"> <i class="fa-solid fa-hashtag fa-sm"></i> 远程桌面</a>   <a href="/blog/tag/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8"> <i class="fa-solid fa-hashtag fa-sm"></i> 云服务器</a>   ·   <a href="/blog/category/%E5%B7%A5%E7%A8%8B"> <i class="fa-solid fa-tag fa-sm"></i> 工程</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="rustdesk-服务器介绍">RustDesk 服务器介绍</h2> <p>RustDesk 服务器有两个可执行程序：</p> <ul> <li> <code class="language-plaintext highlighter-rouge">hbbs</code> - RustDesk ID 注册服务器，是管各个客户端 ID 的，每个客户端都有一个唯一的 ID 。</li> <li> <code class="language-plaintext highlighter-rouge">hbbr</code> - RustDesk 中继服务器，是负责检测、中转各个客户端连接和数据传输。</li> </ul> <p>在部署前，请务必在保证云服务器开放了以下端口：</p> <ul> <li>TCP: 21115-21119</li> <li>UDP: 21116</li> </ul> <p>RustDesk Server 的进程占用端口情况如下：</p> <ul> <li> <code class="language-plaintext highlighter-rouge">hbbs</code> - 21115(TCP), 21116(TCP/UDP), 21118(TCP)</li> <li> <code class="language-plaintext highlighter-rouge">hbbr</code> - 21117(TCP), 21119(TCP)</li> </ul> <p>每个端口都有其各自的作用：</p> <ul> <li>21115(TCP) - 用作 NAT 类型测试</li> <li>21116(UDP) - 用作 ID 注册 与 心跳服务</li> <li>21116(TCP) - 用作 TCP打洞 与 连接服务</li> <li>21117(TCP) - 用作中继服务</li> <li>21118/21119(TCP) - 为了支持网页客户端</li> </ul> <blockquote class="block-tip"> <p>💡 如果启动的时候不加 <code class="language-plaintext highlighter-rouge">-k _</code> 参数，则不使用 <code class="language-plaintext highlighter-rouge">key</code> 也可以连接服务器。</p> </blockquote> <h2 id="环境配置">环境配置</h2> <p>设置时区（可选但推荐）</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td> <td class="code"><pre><span class="c"># 设置时区为东八区的上海</span>
+<span class="nb">sudo </span>timedatectl set-timezone Asia/Shanghai
+<span class="nb">date</span> +%Z  <span class="c"># 应输出 CST</span>
+</pre></td> </tr></tbody></table></code></pre></figure> <p>更新系统并安装基础依赖</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+</pre></td> <td class="code"><pre><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>curl htop wget unzip <span class="nt">-y</span>
+</pre></td> </tr></tbody></table></code></pre></figure> <p>安装 Node.js 与 npm</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td> <td class="code"><pre><span class="nb">sudo </span>apt <span class="nb">install </span>nodejs npm <span class="nt">-y</span>
+node <span class="nt">-v</span>  <span class="c"># 查看 Node.js 版本</span>
+npm <span class="nt">-v</span>   <span class="c"># 查看 npm 版本</span>
+</pre></td> </tr></tbody></table></code></pre></figure> <p>安装 pm2</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+</pre></td> <td class="code"><pre><span class="nb">sudo </span>npm <span class="nb">install</span> <span class="nt">-g</span> pm2
+pm2 <span class="nt">--version</span>  <span class="c"># 查看pm2的版本</span>
+</pre></td> </tr></tbody></table></code></pre></figure> <p>创建 pm2 开机启动脚本</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+</pre></td> <td class="code"><pre>pm2 completion <span class="nb">install</span>  <span class="c"># 根据提示信息完成</span>
+</pre></td> </tr></tbody></table></code></pre></figure> <p>设置 pm2 开机启动</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+</pre></td> <td class="code"><pre><span class="nb">sudo env </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd <span class="nt">-u</span> <span class="k">${</span><span class="nv">USER</span><span class="k">}</span> <span class="nt">--hp</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>
+<span class="nb">sudo </span>systemctl <span class="nb">enable </span>pm2-<span class="k">${</span><span class="nv">USER</span><span class="k">}</span>
+</pre></td> </tr></tbody></table></code></pre></figure> <h2 id="安装并部署-rustdesk-server">安装并部署 RustDesk-Server</h2> <p>执行以下命令自动获取 GitHub 上 <code class="language-plaintext highlighter-rouge">rustdesk/rustdesk-server</code> 仓库的最新发布版本并下载</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td> <td class="code"><pre><span class="nv">REPO</span><span class="o">=</span><span class="s2">"rustdesk/rustdesk-server"</span>
+<span class="nv">latest_tag</span><span class="o">=</span><span class="si">$(</span>curl <span class="nt">-s</span> https://api.github.com/repos/<span class="nv">$REPO</span>/releases/latest | <span class="nb">grep</span> <span class="s1">'"tag_name":'</span> | <span class="nb">sed</span> <span class="nt">-E</span> <span class="s1">'s/.*"([^"]+)".*/\1/'</span><span class="si">)</span>
+<span class="nb">echo</span> <span class="s2">"Using rustdesk-server version </span><span class="nv">$latest_tag</span><span class="s2">"</span>
+
+wget https://github.com/<span class="nv">$REPO</span>/releases/download/<span class="nv">$latest_tag</span>/rustdesk-server-linux-amd64.zip
+</pre></td> </tr></tbody></table></code></pre></figure> <p>解压并整理文件</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td> <td class="code"><pre>unzip rustdesk-server-linux-amd64.zip
+<span class="nb">mv </span>amd64 ~/rustdesk-server
+<span class="nb">rm</span> <span class="nt">-f</span> rustdesk-server-linux-amd64.zip
+</pre></td> </tr></tbody></table></code></pre></figure> <p>此时，RustDesk 的两个核心可执行文件 <code class="language-plaintext highlighter-rouge">hbbs</code> 和 <code class="language-plaintext highlighter-rouge">hbbr</code> 已位于 <code class="language-plaintext highlighter-rouge">~/rustdesk-server/</code> 目录下。</p> <p>进入 RustDesk 目录并启动两个服务</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td> <td class="code"><pre><span class="nb">cd</span> ~/rustdesk-server
+pm2 start hbbs <span class="nt">--</span> <span class="nt">-k</span> _
+pm2 start hbbr <span class="nt">--</span> <span class="nt">-k</span> _
+</pre></td> </tr></tbody></table></code></pre></figure> <blockquote class="block-tip"> <p>💡 <code class="language-plaintext highlighter-rouge">-k _</code>：表示不启用密钥验证（即客户端无需填写密钥即可连接）。若需启用密钥认证，可替换 <code class="language-plaintext highlighter-rouge">_</code> 为自定义密钥，如 <code class="language-plaintext highlighter-rouge">-k mysecret123</code> 。</p> </blockquote> <p>保存 PM2 进程状态（用于开机恢复）</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+</pre></td> <td class="code"><pre>pm2 save
+</pre></td> </tr></tbody></table></code></pre></figure> <p>此命令会将当前运行的进程列表保存，配合之前配置的 <code class="language-plaintext highlighter-rouge">pm2 startup</code>，确保系统重启后服务自动恢复。</p> <p>验证服务是否正常运行</p> <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+</pre></td> <td class="code"><pre>pm2 list
+</pre></td> </tr></tbody></table></code></pre></figure> <p>应看到类似如下输出</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td> <td class="rouge-code"><pre>┌────┬──────────┬─────────────┬─────────┬─────────┬──────────┐
+│ <span class="nb">id</span> │ name     │ namespace   │ version │ mode    │ status   │
+├────┼──────────┼─────────────┼─────────┼─────────┼──────────┤
+│ 0  │ hbbs     │ default     │ N/A     │ fork    │ online   │
+│ 1  │ hbbr     │ default     │ N/A     │ fork    │ online   │
+└────┴──────────┴─────────────┴─────────┴─────────┴──────────┘
+</pre></td> </tr></tbody></table></code></pre></div></div> <p>若状态为 <code class="language-plaintext highlighter-rouge">online</code>，说明服务已成功启动。</p> <p>此时查看 rustdesk-server 目录，可以看到生成了一些数据库文件和一个证书文件</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td> <td class="rouge-code"><pre>rustdesk-server
+├── db_v2.sqlite3
+├── db_v2.sqlite3-shm
+├── db_v2.sqlite3-wal
+├── hbbr
+├── hbbs
+├── id_ed25519
+├── id_ed25519.pub
+└── rustdesk-utils
+</pre></td> </tr></tbody></table></code></pre></div></div> <p>需要拷贝公钥文件 <code class="language-plaintext highlighter-rouge">id_ed25519.pub</code> 中的内容（例如<code class="language-plaintext highlighter-rouge">C6bJn7*******************50nCK3y4=</code>），用于接下来的本地配置。</p> <h2 id="客户端配置">客户端配置</h2> <p>打开 RustDesk 客户端，点击左上角 <code class="language-plaintext highlighter-rouge">ID</code> 旁边的三点图标，进入设置。</p> <p>切换到 <code class="language-plaintext highlighter-rouge">网络</code> 选项卡，点击 <code class="language-plaintext highlighter-rouge">ID/中继服务器</code> ：</p> <ul> <li>在 <code class="language-plaintext highlighter-rouge">ID 服务器</code> 字段中填写你的云服务器公网 IP 地址或域名。</li> <li>在 <code class="language-plaintext highlighter-rouge">key</code> 字段中填写刚才拷贝的公钥内容（例如 <code class="language-plaintext highlighter-rouge">C6bJn7*******************50nCK3y4</code> ）</li> </ul> <p>点击 <code class="language-plaintext highlighter-rouge">确认</code>，回到主页，等待客户端与服务端建立连接，即可完成配置。</p> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/leo-iot/">低轨卫星网络物联网相关论文簇</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/leo-hardware/">低轨卫星网络硬件 &amp; 物理层相关论文簇</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/atc25/">USENIX ATC' 25 低轨卫星网络论文簇</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/sigcomm25/">SIGCOMM' 25 低轨卫星网络论文簇</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2025/leo-net-arch/">低轨卫星网络架构</a> </li> </div> </div> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2025 Yuxuan Huang. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script defer src="/assets/js/bootstrap-toc.min.js?c82ff4de8b0955d6ff14f5b05eed7eb6"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.js?6c304f7b1992d4b60f7a07956e52f04a"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script> </body> </html>

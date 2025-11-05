@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://Cresc3nt.github.io/sitemap.xml
