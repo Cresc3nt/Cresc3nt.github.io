@@ -41,6 +41,17 @@ ninja.data = [{
         
           title: "低轨卫星网络物联网相关论文簇",
         
+        description: "本文整理了截至 2025 年，低轨卫星网络中DTC方向的代表性论文。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/leo-dtc/";
+          
+        },
+      },{id: "post-低轨卫星网络物联网相关论文簇",
+        
+          title: "低轨卫星网络物联网相关论文簇",
+        
         description: "本文整理了截至 2025 年，低轨卫星网络中卫星物联网方向的代表性论文。",
         section: "Posts",
         handler: () => {
