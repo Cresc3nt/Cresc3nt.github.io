@@ -7,7 +7,6 @@ publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
 url = {https://doi.org/10.1145/3544216.3544233},
 doi = {10.1145/3544216.3544233},
-abstract = {Is it worth and feasible to push mobile core network functions to low-earth-orbit (LEO) satellite mega-constellations? While this paradigm is being tested in space and promises new values, it also raises scalability, performance, and security concerns based on our study with datasets from operational satellites and 5G. A major challenge is today's stateful mobile core, which suffers from signaling storms in satellites' extreme mobility, intermittent failures in outer space, and attacks when unavoidably exposed to untrusted foreign locations. To this end, we make a case for a stateless mobile core in space. Our solution, SpaceCore, decouples states from orbital core functions, simplifies location states via geospatial addressing, eliminates unnecessary state migrations in satellite mobility by shifting to geospatial service areas, and localizes state retrievals with device-as-the-repository. Our evaluation with datasets from operational satellites and 5G shows SpaceCore's 17.5\texttimes{} over existing solutions signaling reductions and resiliency to failures/attacks.},
 booktitle = {Proceedings of the ACM SIGCOMM 2022 Conference},
 pages = {298–313},
 numpages = {16},
@@ -16,3 +15,59 @@ location = {Amsterdam, Netherlands},
 series = {SIGCOMM '22}
 }
 
+@article{10417070,
+author={Liu, Lixin and Liu, Wei and Li, Yuanjie and Li, Hewu},
+journal={IEEE Internet Computing}, 
+title={Enabling 6G and Beyond Network Functions From Space: Challenges and Opportunities}, 
+year={2024},
+volume={28},
+number={2},
+pages={8-17},
+keywords={Satellite broadcasting;Low earth orbit satellites;Cellular networks;6G mobile communication;Orbits;Internet;Space communications;Security;Computer architecture},
+doi={10.1109/MIC.2024.3359773}
+}
+
+@inproceedings {295555,
+author = {Lixin Liu and Yuanjie Li and Hewu Li and Jiabo Yang and Wei Liu and Jingyi Lan and Yufeng Wang and Jiarui Li and Jianping Wu and Qian Wu and Jun Liu and Zeqi Lai},
+title = {Democratizing {Direct-to-Cell} Low Earth Orbit Satellite Networks},
+booktitle = {21st USENIX Symposium on Networked Systems Design and Implementation (NSDI 24)},
+year = {2024},
+isbn = {978-1-939133-39-7},
+address = {Santa Clara, CA},
+pages = {791--808},
+url = {https://www.usenix.org/conference/nsdi24/presentation/liu-lixin},
+publisher = {USENIX Association},
+month = apr,
+series = {NSDI'24}
+}
+
+@inproceedings{10621115,
+author={Wu, Jiasheng and Su, Shaojie and Wang, Xiong and Zhang, Jingjing and Gao, Yue},
+booktitle={IEEE INFOCOM 2024 - IEEE Conference on Computer Communications}, 
+title={Accelerating Handover in Mobile Satellite Network}, 
+year={2024},
+volume={},
+number={},
+pages={531-540},
+keywords={6G mobile communication;Satellite constellations;Satellites;Graphical models;Low earth orbit satellites;Prototypes;Handover;Mobile Satellite Network;Handover;6G;LEO;Open5GS},
+doi={10.1109/INFOCOM52122.2024.10621115}
+}
+
+
+@inproceedings{10.1145/3718958.3750522,
+author = {Liu, Wei and Li, Yuanjie and Lan, Jingyi and Li, Hewu and Chen, Yimei and Liu, Lixin and Yang, Jiabo and Long, Xi and Ouyang, Li and Tang, Minghao and Wu, Jianping and Wu, Qian and Liu, Jun and Lai, Zeqi},
+title = {Direct-to-Cell Satellite Network without Satellite Navigation},
+year = {2025},
+isbn = {9798400715242},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3718958.3750522},
+doi = {10.1145/3718958.3750522},
+abstract = {Direct-to-cell satellites enable global network services for our regular phones/IoTs via 4G, 5G, and beyond. To enforce highly available, trustworthy, and roaming policy-compliant network services, they heavily rely on user geolocation and timing information from external global navigation satellite systems (GNSS) to assist with their radio access, authentication, and authorization. Our analysis and field tests reveal that, this cross-technology over-reliance propagates satellite navigation's defects to direct-to-cell satellite networks, leading to diverse issues such as intermittent connectivity, over/under-billing, unauthorized services, and service denials even when direct-to-cell satellites are accessible. Our solution, SN2, adopts the "fate-sharing" principle to reuse direct-to-cell satellites themselves for self-navigating networks. By exploiting the flexible tradeoffs between satellite network availability and navigation accuracy, it enables "good enough" built-in navigation for highly available and functionally correct network services at a negligible cost of hardware or communication resources. Our evaluations with commodity satellite phones and 3GPP NTN protocol stacks demonstrate SN2's 4.4–23.5\texttimes{} network availability boost and 1.9–12.3\texttimes{} access latency reduction over legacy solutions.},
+booktitle = {Proceedings of the ACM SIGCOMM 2025 Conference},
+pages = {932–947},
+numpages = {16},
+keywords = {direct-to-cell satellite network, GNSS, network reliability},
+location = {S\~{a}o Francisco Convent, Coimbra, Portugal},
+series = {SIGCOMM '25}
+}
