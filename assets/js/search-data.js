@@ -37,9 +37,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-低轨卫星网络物联网相关论文簇",
+        },{id: "post-低轨卫星网络-dtc-相关论文簇",
         
-          title: "低轨卫星网络物联网相关论文簇",
+          title: "低轨卫星网络 DTC 相关论文簇",
         
         description: "本文整理了截至 2025 年，低轨卫星网络中DTC方向的代表性论文。",
         section: "Posts",
