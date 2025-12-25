@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-低轨卫星星座测量与仿真论文概览",
+        },{id: "post-低轨卫星网络路由与传输论文概览",
+        
+          title: "低轨卫星网络路由与传输论文概览",
+        
+        description: "本文整理了 2021 - 2025 年中，低轨卫星网络路由与传输方面的部分论文。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/sat-transport/";
+          
+        },
+      },{id: "post-低轨卫星星座测量与仿真论文概览",
         
           title: "低轨卫星星座测量与仿真论文概览",
         
