@@ -37,7 +37,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-低轨卫星网络-dtc-相关论文簇",
+        },{id: "post-低轨卫星星座测量与仿真论文概览",
+        
+          title: "低轨卫星星座测量与仿真论文概览",
+        
+        description: "本文整理了 2021 - 2025 年中，针对卫星星座进行测量或者仿真的部分论文。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/sat-sim/";
+          
+        },
+      },{id: "post-卫星物联网论文概览",
+        
+          title: "卫星物联网论文概览",
+        
+        description: "本文整理了 2021 - 2025 年中卫星物联网方向的部分论文。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/sat-iot/";
+          
+        },
+      },{id: "post-低轨卫星网络-dtc-相关论文簇",
         
           title: "低轨卫星网络 DTC 相关论文簇",
         
